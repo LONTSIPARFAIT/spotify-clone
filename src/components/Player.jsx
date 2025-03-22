@@ -39,7 +39,9 @@ const Player = () => {
             alt=""
           />
         </div>
-        <div className="flex items-center gap-5"></div>
+        <div className="flex items-center gap-5">
+          <p></p>
+        </div>
       </div>
     </div>
   );
