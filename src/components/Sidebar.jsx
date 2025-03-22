@@ -1,5 +1,5 @@
 import React from 'react'
-import {assets} from '../assets/assets/assets'
+import {assets} from '../assets/assets'
 
 const Sidebar = () => {
   return (
