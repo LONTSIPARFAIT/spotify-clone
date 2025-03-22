@@ -7,7 +7,7 @@ const Sidebar = () => {
       <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
         <div className="flex items-center gap-3 pl-8 cursor-pointer">
             <img src={assets.home_icon} alt="" />
-            <div className="font-semibold">Home</div>
+            <div className="font-bold">Home</div>
         </div>
       </div>
     </div>
