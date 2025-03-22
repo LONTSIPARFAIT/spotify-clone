@@ -2,7 +2,7 @@ import React from 'react'
 
 const Player = () => {
   return (
-    <div className='h-[] text-white'>
+    <div className='h-[10%] bg-black text-white'>
       Player
     </div>
   )
