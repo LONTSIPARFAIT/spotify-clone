@@ -40,7 +40,7 @@ const Player = () => {
           />
         </div>
         <div className="flex items-center gap-5">
-          <p></p>
+          <p>1:06</p>
         </div>
       </div>
     </div>
