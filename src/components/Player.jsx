@@ -47,8 +47,8 @@ const Player = () => {
           <p>3:20</p>
         </div>
       </div>
-      <div className="lg:flex items-center gap-2 opacity-75">
-        <img className="" src={assets.plays_icon} alt="" />
+      <div className="hidden lg:flex items-center gap-2 opacity-75">
+        <img className="w-4" src={assets.plays_icon} alt="" />
       </div> 
     </div>
   );
