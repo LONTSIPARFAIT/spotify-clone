@@ -20,7 +20,7 @@ const Player = () => {
           />
           <img
             className="w-4 cursor-pointer"
-            src={assets.shuffle_icon}
+            src={assets.prev_icon}
             alt=""
           />
           <img
