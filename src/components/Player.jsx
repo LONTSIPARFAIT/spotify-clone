@@ -39,6 +39,7 @@ const Player = () => {
             alt=""
           />
         </div>
+        <div className="flex"></div>
       </div>
     </div>
   );
