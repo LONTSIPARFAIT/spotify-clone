@@ -4,7 +4,7 @@ const Sidebar = () => {
   return (
     <div className='w-[25%] h-full p-2 flex-col gap-2 hidden lg:flex bg-white'>
       <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
-        <div className=""></div>
+        <div className="flex items-center gap-3"></div>
       </div>
     </div>
   )
