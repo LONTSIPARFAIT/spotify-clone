@@ -41,6 +41,7 @@ const Player = () => {
         </div>
         <div className="flex items-center gap-5">
           <p>1:06</p>
+          <div className="w-[60vw] max-w[500px]"></div>
         </div>
       </div>
     </div>
