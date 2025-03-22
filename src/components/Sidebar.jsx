@@ -29,6 +29,7 @@ const Sidebar = () => {
                 {/* <h1>Create your first playlist</h1> */}
                 <p className='font-light'>c'est facile, nous vous aiderons</p>
                 {/* <p>it's easy we will help you</p> */}
+                <button>Creer La PlayList</button>
             </div>
         </div>
       </div>
