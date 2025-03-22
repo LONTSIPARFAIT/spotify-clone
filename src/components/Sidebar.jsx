@@ -13,8 +13,8 @@ const Sidebar = () => {
             <img className='w-6' src={assets.search_icon} alt="" />
             <div className="font-bold">Search</div>
         </div>
-        <div className="bg-[#121212">
-            
+        <div className="bg-[#121212] h-[85%] rounded flex flex-col justify-around">
+
         </div>
       </div>
     </div>
