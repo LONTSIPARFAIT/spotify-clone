@@ -29,7 +29,7 @@ const Sidebar = () => {
                 {/* <h1>Create your first playlist</h1> */}
                 <p className='font-light'>c'est facile, nous vous aiderons</p>
                 {/* <p>it's easy we will help you</p> */}
-                <button className='px-4 py-1.5 bg-white text-[15px]'>Creer La PlayList</button>
+                <button className='px-4 py-1.5 bg-white text-[15px] text-black rounded'>Creer La PlayList</button>
             </div>
         </div>
       </div>
