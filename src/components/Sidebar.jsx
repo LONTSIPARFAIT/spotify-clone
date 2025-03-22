@@ -24,7 +24,7 @@ const Sidebar = () => {
                     <img className='w-5' src={assets.plus_icon} alt="" />
                 </div>
             </div>
-            <div className=""></div>
+            <div className="p-4 bg-[]"></div>
         </div>
       </div>
     </div>
