@@ -27,7 +27,7 @@ const Sidebar = () => {
             <div className="p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4">
                 <h1>Créez votre première playlist</h1>
                 {/* <h1>Create your first playlist</h1> */}
-                <p>c'est facile, nous vous aiderons</p>
+                <p className='font-light'>c'est facile, nous vous aiderons</p>
                 {/* <p>it's easy we will help you</p> */}
             </div>
         </div>
