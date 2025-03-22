@@ -16,7 +16,8 @@ const Sidebar = () => {
         <div className="bg-[#121212] h-[85%] rounded">
             <div className="p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <img className='' src={assets.stack_icon} alt="" />
+                    <img className='w-8' src={assets.stack_icon} alt="" />
+                    <div className="">Votre Bibliothèque</div>
                 </div>
             </div>
         </div>
