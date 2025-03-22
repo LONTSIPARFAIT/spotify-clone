@@ -47,6 +47,9 @@ const Player = () => {
           <p>3:20</p>
         </div>
       </div>
+      <div className="lg:flex items-center gap-2 opacity-75">
+        f
+      </div>
     </div>
   );
 };
