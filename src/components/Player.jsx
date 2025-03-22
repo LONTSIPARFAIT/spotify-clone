@@ -53,7 +53,7 @@ const Player = () => {
         <img className="w-4" src={assets.queue_icon} alt="" />
         <img className="w-4" src={assets.speaker_icon} alt="" />
         <img className="w-4" src={assets.volume_icon} alt="" />
-        <div className="w-20 bg-white">
+        <div className="w-20 bg-slate-50">
 
         </div>
         <img className="w-4" src={assets.mini_player_icon} alt="" />
