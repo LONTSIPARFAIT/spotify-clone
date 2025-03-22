@@ -14,7 +14,9 @@ const Sidebar = () => {
             <div className="font-bold">Search</div>
         </div>
         <div className="bg-[#121212] h-[85%] rounded">
-            <div className="p-4 flex items-center justify-between"></div>
+            <div className="p-4 flex items-center justify-between">
+                <div className=""></div>
+            </div>
         </div>
       </div>
     </div>
