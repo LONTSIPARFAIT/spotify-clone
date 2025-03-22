@@ -16,7 +16,7 @@ const Sidebar = () => {
         <div className="bg-[#121212] h-[85%] rounded">
             <div className="p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <img src={assets.stack_icon} alt="" />
+                    <img className='' src={assets.stack_icon} alt="" />
                 </div>
             </div>
         </div>
