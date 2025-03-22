@@ -1,5 +1,5 @@
 import React from 'react'
-import { songsData } from '../assets/assets'
+import { assets, songsData } from '../assets/assets'
 
 const Player = () => {
   return (
@@ -12,7 +12,9 @@ const Player = () => {
         </div>
       </div>
       <div className="flex flex-col items-center gap-1 m-auto">
-        <div className=""></div>
+        <div className="flex gap-4">
+            <img src={assets} alt="" />
+        </div>
       </div>
     </div>
   )
