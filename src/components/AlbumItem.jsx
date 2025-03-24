@@ -2,7 +2,7 @@ import React from 'react'
 
 const AlbumItem = (image,name,desc,id) => {
   return (
-    <div className=''>
+    <div className='min-w-[180px]'>
       AlbumItem
     </div>
   )
