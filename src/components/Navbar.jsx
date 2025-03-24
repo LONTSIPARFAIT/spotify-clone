@@ -9,7 +9,9 @@ const Navbar = () => {
           <img className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_left} alt="" />
           <img className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_right} alt="" />
         </div>
-        <div className=""></div>
+        <div className="flex">
+
+        </div>
 
       </div>
     </>
