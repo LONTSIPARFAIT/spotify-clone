@@ -5,7 +5,7 @@ const DisplayHome = () => {
   return (
     <>
       <Navbar />
-      <div className="">
+      <div className="my-5 font-bold">
         d
       </div>
     </>
