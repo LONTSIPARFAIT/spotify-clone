@@ -8,7 +8,7 @@ const DisplayHome = () => {
     <>
       <Navbar />
       <div className="my-5 font-bold text-2xl">
-        {albumsData.map((item,index)=>(<AlbumItem key={index} />))}
+        {albumsData.map((item,index)=>(<AlbumItem key={index} name={} />))}
       </div>
     </>
   )
