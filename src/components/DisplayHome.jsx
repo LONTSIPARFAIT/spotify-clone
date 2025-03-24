@@ -7,7 +7,7 @@ const DisplayHome = () => {
     <>
       <Navbar />
       <div className="my-5 font-bold text-2xl">
-        {albumsData.map(())}
+        {albumsData.map((item,index))}
       </div>
     </>
   )
