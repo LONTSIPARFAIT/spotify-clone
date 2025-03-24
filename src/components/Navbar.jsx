@@ -11,6 +11,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4">
           <p className='bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer'>Explore Premium</p>
+          <p className='bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer'>Explore Premium</p>
         </div>
 
       </div>
