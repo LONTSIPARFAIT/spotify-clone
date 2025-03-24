@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AlbumItem = () => {
+const AlbumItem = (image,name,desc,id) => {
   return (
     <div>
       AlbumItem
