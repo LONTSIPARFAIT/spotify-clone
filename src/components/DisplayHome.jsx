@@ -10,9 +10,9 @@ const DisplayHome = () => {
       <div className="mb-5">
         <h1 className="my-5 text-slate-200 font-bold text-2xl">Featured Charts</h1>  
         <div className="">
-          
+          {albumsData.map((item,index)=>(<AlbumItem key={index} name={item.name} desc={item.desc} id={item.id} image={item.image} />))}
+
         </div>
-        {albumsData.map((item,index)=>(<AlbumItem key={index} name={item.name} desc={item.desc} id={item.id} image={item.image} />))}
       </div>
     </>
   )
