@@ -5,7 +5,9 @@ const DisplayHome = () => {
   return (
     <>
       <Navbar />
-      <div className=""></div>
+      <div className="">
+        d
+      </div>
     </>
   )
 }
