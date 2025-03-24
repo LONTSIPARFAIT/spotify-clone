@@ -17,7 +17,9 @@ const Navbar = () => {
 
       </div>
 
-      <div className=""></div>
+      <div className="flex items-center">
+        d
+      </div>
     </>
   )
 }
