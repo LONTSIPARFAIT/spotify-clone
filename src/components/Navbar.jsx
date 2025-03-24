@@ -10,7 +10,7 @@ const Navbar = () => {
           <img className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_right} alt="" />
         </div>
         <div className="flex items-center gap-4">
-          <p className='bg-white'>Explore Premium</p>
+          <p className='bg-white text-black texy-'>Explore Premium</p>
         </div>
 
       </div>
