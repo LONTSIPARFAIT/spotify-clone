@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import DisplayHome from './DisplayHome'
 import DisplayAlbum from './DisplayAlbum'
@@ -15,9 +15,10 @@ const Display = () => {
   // console.log(albumId);
   const bgColor = albumsData[Number(albumId)].bgColor
   // console.log(bgColor);
-  
-  
-  
+
+  useEffect(() => {
+
+  })
 
   return (
     <div ref={displayRef} className='w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0'>
