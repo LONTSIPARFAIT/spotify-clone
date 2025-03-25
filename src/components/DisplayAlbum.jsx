@@ -21,8 +21,8 @@ const DisplayAlbum = () => {
           <p className=''>Playlist</p>
           <h2 className='text-5xl font-bold mb-4 md:text-7xl'> {albumData.name} </h2>
           <h4 className=''>{albumData.desc}</h4>
-          <p className="">
-            
+          <p className="mt-1">
+
           </p>
         </div>
       </div>
