@@ -55,7 +55,7 @@ const DisplayAlbum = () => {
             </p>
             <p className="text-[15px]">{albumData.name}</p>
             <p className="text-[15px] hidden sm:block">il y a 5 jours</p>
-            <p className="text-[15px]">{item.duration}</p>
+            <p className="text-[15px] text-center">{item.duration}</p>
           </div>
         );
       })}
