@@ -30,7 +30,9 @@ const DisplayAlbum = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[] gap-4"></div>
+      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] gap-4">
+        <p className="text-lg font-bold">Songs</p>
+      </div>
     </>
   )
 }
