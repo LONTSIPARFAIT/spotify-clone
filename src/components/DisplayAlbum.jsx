@@ -15,7 +15,7 @@ const DisplayAlbum = () => {
   return (
     <>
       <Navbar />
-      <div className="">
+      <div className="mt-10 flex">
         s
       </div>
     </>
