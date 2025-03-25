@@ -39,8 +39,8 @@ const DisplayAlbum = () => {
       <hr />
       {
         songsData.map((song, index) => {
-          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] ">
-            d
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:text-[#ffffff2b] cursor-pointer">
+             d
           </div>
         })
       }
