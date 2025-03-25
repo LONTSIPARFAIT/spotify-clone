@@ -1,9 +1,10 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
-  const
+  const navigate = useNavigate
 
   return (
     <>
