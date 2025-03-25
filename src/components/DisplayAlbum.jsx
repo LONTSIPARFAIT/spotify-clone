@@ -30,7 +30,7 @@ const DisplayAlbum = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] gap-4">
+      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
         <p className=""><b className='mr-4'>#</b>Titre</p>
         <p className="">Album</p>
         <p className="hidden sm:block ">Date d'Ajout</p>
@@ -39,7 +39,7 @@ const DisplayAlbum = () => {
       <hr />
       {
         songsData.map((song, index) => {
-          <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] ">
             d
           </div>
         })
