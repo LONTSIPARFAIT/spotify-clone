@@ -11,7 +11,7 @@ const Display = () => {
   const isAlbum = location.pathname.includes('album')
   // console.log(isAlbum);
   const albumId = isAlbum ? location.pathname.slice(-1) : ""
-  console.log(albumId);
+  // console.log(albumId);
   
   
   
