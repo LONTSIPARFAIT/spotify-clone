@@ -7,7 +7,8 @@ const Display = () => {
 
   const displayRef = useRef()
   const location = useLocation()
-  console.log(location);
+  // console.log(location);
+  const isAlbum = location.pathname
   
 
   return (
