@@ -8,7 +8,7 @@ const Display = () => {
 
   const displayRef = useRef()
   const location = useLocation()
-  // console.log(location);
+  // console.log(location);   
   const isAlbum = location.pathname.includes('album')
   // console.log(isAlbum);
   const albumId = isAlbum ? location.pathname.slice(-1) : ""
@@ -17,7 +17,9 @@ const Display = () => {
   // console.log(bgColor);
 
   useEffect(() => {
-
+    if (isAlbum) {
+      
+    }
   })
 
   return (
