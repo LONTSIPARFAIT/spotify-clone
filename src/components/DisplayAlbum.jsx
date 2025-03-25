@@ -53,7 +53,7 @@ const DisplayAlbum = () => {
               <img className="inline w-10 mr-5" src={item.image} alt="" />
               {item.name}
             </p>
-            <p className=""></p>
+            <p className="">{albumData.name}</p>
           </div>
         );
       })}
