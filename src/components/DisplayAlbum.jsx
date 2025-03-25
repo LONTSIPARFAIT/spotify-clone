@@ -30,7 +30,7 @@ const DisplayAlbum = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-4 gap-4"></div>
+      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[] gap-4"></div>
     </>
   )
 }
