@@ -10,7 +10,7 @@ const Display = () => {
   // console.log(location);
   const isAlbum = location.pathname.includes('album')
   // console.log(isAlbum);
-  const albimId
+  const albumId = isAlbum
   
   
 
