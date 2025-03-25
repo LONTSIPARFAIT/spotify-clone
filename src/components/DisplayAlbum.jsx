@@ -16,7 +16,7 @@ const DisplayAlbum = () => {
     <>
       <Navbar />
       <div className="mt-10 flex gap-8 flex-col md:flex-row md:items-center">
-        <img className='rounded' src={albumData.image} alt="" />
+        <img className='w-48 rounded' src={albumData.image} alt="" />
         s
       </div>
     </>
