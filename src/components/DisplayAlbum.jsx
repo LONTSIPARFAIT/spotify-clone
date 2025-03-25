@@ -4,7 +4,8 @@ import Navbar from './Navbar'
 const DisplayAlbum = () => {
   return (
     <>
-      <Navbar>
+      <Navbar />
+      dfd
     </>
   )
 }
