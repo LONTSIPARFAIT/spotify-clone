@@ -34,7 +34,7 @@ const DisplayAlbum = () => {
         <p className="text-lg font-bold"><b className='mr-4'>#</b>Titre</p>
         <p className="text-lg font-bold">Album</p>
         <p className="hidden sm:block text-lg font-bold">Date d'Ajout</p>
-        <img src={assets} alt="" />
+        <img className='' src={assets.clock_icon} alt="" />
       </div>
     </>
   )
