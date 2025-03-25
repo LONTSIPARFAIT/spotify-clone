@@ -10,7 +10,7 @@ const Display = () => {
   // console.log(location);
   const isAlbum = location.pathname.includes('album')
   // console.log(isAlbum);
-  const albumId = isAlbum ? location.pathname.slice('/')[2] : null
+  const albumId = isAlbum ? location.pathname.slice(-1)[2] : null
   
   
 
