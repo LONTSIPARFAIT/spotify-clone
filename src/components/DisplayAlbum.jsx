@@ -8,7 +8,7 @@ const DisplayAlbum = () => {
   const {id} = useParams()
   // console.log(id);
 
-  const albumData = albumsData.find(item=>item.id === id)
+  const albumData = albumsData[id]
   console.log(albumData);
   
 
