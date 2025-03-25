@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
-import { albumsData, assets } from '../assets/assets'
+import { albumsData, assets, songsData } from '../assets/assets'
 
 const DisplayAlbum = () => {
 
@@ -38,7 +38,9 @@ const DisplayAlbum = () => {
       </div>
       <hr />
       {
-        d
+        songsData.map((song, index) => {
+          
+        })
       }
     </>
   )
