@@ -26,6 +26,7 @@ const DisplayAlbum = () => {
             <b>Spotify</b>
             . 1,323,154 likes
             . <b>50 songs,</b>
+            about 3 hr 25 min
           </p>
         </div>
       </div>
