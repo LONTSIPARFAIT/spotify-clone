@@ -19,6 +19,7 @@ const DisplayAlbum = () => {
         <img className='w-48 rounded' src={albumData.image} alt="" />
         <div className="flex flex-col">
           <p className=''>Playlist</p>
+          <h2></h2>
         </div>
       </div>
     </>
