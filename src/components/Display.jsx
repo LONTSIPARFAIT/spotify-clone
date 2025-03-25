@@ -18,7 +18,7 @@ const Display = () => {
 
   useEffect(() => {
     if (isAlbum) {
-      displayRef.current.style.backgroundColor = bgColor
+      displayRef.current.style.backgroundColor = `bgColor`
     }
   })
 
