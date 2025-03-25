@@ -2,6 +2,9 @@ import React from 'react'
 import { assets } from '../assets/assets'
 
 const Navbar = () => {
+
+  const
+
   return (
     <>
       <div className="w-full flex justify-between items-center font-semibold">
