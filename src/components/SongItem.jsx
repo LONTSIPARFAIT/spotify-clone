@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SongItem = () => {
+const SongItem = ({image,name,desc,id}) => {
   return (
     <div>
       SongItem
