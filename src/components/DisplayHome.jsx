@@ -9,9 +9,10 @@ const DisplayHome = () => {
       <Navbar />
       <div className="mb-5">
         <h1 className="my-5 text-slate-200 font-bold text-2xl">Featured Charts</h1>  
-        <div className="flex overflow-auto">
+        <div className="">
           {albumsData.map((item,index)=>(<AlbumItem key={index} image={item.image} name={item.name} desc={item.desc} id={item.id} />))}
-
+          <p>Test</p>
+          <p>Test 2</p>
         </div>
       </div>
     </>
