@@ -15,7 +15,9 @@ const DisplayAlbum = () => {
   return (
     <>
       <Navbar />
-      dfd
+      <div className="">
+        s
+      </div>
     </>
   )
 }
