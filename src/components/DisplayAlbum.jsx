@@ -33,7 +33,8 @@ const DisplayAlbum = () => {
       <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] gap-4">
         <p className="text-lg font-bold"><b className='mr-4'>#</b>Titre</p>
         <p className="text-lg font-bold">Album</p>
-        <p className="hidden sm:block">Date d'Ajout</p>
+        <p className="hidden sm:block text-lg font-bold">Date d'Ajout</p>
+        <img src="" alt="" />
       </div>
     </>
   )
