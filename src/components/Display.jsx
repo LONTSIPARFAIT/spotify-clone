@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import DisplayHome from './DisplayHome'
 import DisplayAlbum from './DisplayAlbum'
+import { albumsData } from '../assets/assets'
 
 const Display = () => {
 
@@ -12,7 +13,7 @@ const Display = () => {
   // console.log(isAlbum);
   const albumId = isAlbum ? location.pathname.slice(-1) : ""
   // console.log(albumId);
-  const bgColor
+  const bgColor = albumsData
   
   
   
