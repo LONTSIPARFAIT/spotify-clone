@@ -9,7 +9,7 @@ const Display = () => {
   const location = useLocation()
   // console.log(location);
   const isAlbum = location.pathname.includes('album')
-  console.log(isAlbum);
+  // console.log(isAlbum);
   
   
 
