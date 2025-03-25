@@ -22,7 +22,8 @@ const DisplayAlbum = () => {
           <h2 className='text-5xl font-bold mb-4 md:text-7xl'> {albumData.name} </h2>
           <h4 className=''>{albumData.desc}</h4>
           <p className="mt-1">
-            <img className='' src={assets.spotify_logo} alt="" />
+            <img className='inline-block w-5 ' src={assets.spotify_logo} alt="" />
+            <b>Spotify</b>
           </p>
         </div>
       </div>
