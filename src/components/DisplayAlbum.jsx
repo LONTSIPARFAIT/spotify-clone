@@ -30,6 +30,7 @@ const DisplayAlbum = () => {
           </p>
         </div>
       </div>
+      <div className="grid"></div>
     </>
   )
 }
