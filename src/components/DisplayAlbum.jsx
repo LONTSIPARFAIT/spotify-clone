@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
-import { albumsData } from '../assets/assets'
+import { albumsData, assets } from '../assets/assets'
 
 const DisplayAlbum = () => {
 
@@ -22,7 +22,7 @@ const DisplayAlbum = () => {
           <h2 className='text-5xl font-bold mb-4 md:text-7xl'> {albumData.name} </h2>
           <h4 className=''>{albumData.desc}</h4>
           <p className="mt-1">
-            <img src={} alt="" />
+            <img src={assets} alt="" />
           </p>
         </div>
       </div>
