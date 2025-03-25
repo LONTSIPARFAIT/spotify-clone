@@ -39,7 +39,7 @@ const DisplayAlbum = () => {
       <hr />
       {
         songsData.map((song, index) => {
-          <div className="grid">
+          <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] gap-4">
             d
           </div>
         })
