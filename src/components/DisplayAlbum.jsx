@@ -9,7 +9,7 @@ const DisplayAlbum = () => {
   // console.log(id);
 
   const albumData = albumsData[id]
-  console.log(albumData);
+  // console.log(albumData);
   
 
   return (
