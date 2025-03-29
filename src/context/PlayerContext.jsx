@@ -2,6 +2,6 @@ import { createContext } from "react";
 
 const PlayerContext = createContext();
 
-const PlayerContextProvider = () => {
-  
+const PlayerContextProvider = (props) => {
+
 }
