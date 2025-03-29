@@ -5,7 +5,6 @@ export const PlayerContext = createContext();
 const PlayerContextProvider = (props) => {
 
   const audioRef = useRef()
-
   const seekBg = useRef()
 
   const contextValue = {
