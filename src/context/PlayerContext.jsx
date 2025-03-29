@@ -35,7 +35,16 @@ const PlayerContextProvider = (props) => {
     setTimeout(() => {
       
       audioRef.current.ontimeupdate = () =>{
-        s
+        setTimeout({
+          currentTime: {
+            second: 0,
+            minute: 0,
+          },
+          totalTime: {
+            second: 20,
+            minute: 0,
+          }
+        });
       }
 
     }, 1000);
