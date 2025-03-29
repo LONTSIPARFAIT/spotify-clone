@@ -1,2 +1,3 @@
+import { createContext } from "react";
 
-const PlayerContext =
+const PlayerContext = createContext
