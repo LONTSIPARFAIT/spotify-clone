@@ -22,7 +22,7 @@ const PlayerContextProvider = (props) => {
   });
 
   const play = () => {
-    audioRef.current
+    audioRef.current.play();
   }
 
   const contextValue = {
