@@ -1,4 +1,5 @@
 import { createContext, useRef, useState } from "react";
+import { songsData } from "../assets/assets";
 
 export const PlayerContext = createContext();
 
@@ -8,7 +9,7 @@ const PlayerContextProvider = (props) => {
   const seekBg = useRef()
   const seekBar = useRef()
 
-  const [track,setTrack] = useState
+  const [track,setTrack] = useState(songsData)
 
   const contextValue = {
     audioRef,
