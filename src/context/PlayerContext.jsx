@@ -9,7 +9,9 @@ const PlayerContextProvider = (props) => {
   }
 
   return (
-    <PlayerContext.Provider></PlayerContext.Provider>
+    <PlayerContext.Provider>
+      {}
+    </PlayerContext.Provider>
   )
 
 }
