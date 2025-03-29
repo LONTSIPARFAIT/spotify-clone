@@ -14,6 +14,7 @@ const PlayerContextProvider = (props) => {
   const [time,setTime] = useState({
     currentTime:{
       second:0,
+      minute:0
     }
   })
 
