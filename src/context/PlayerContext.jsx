@@ -25,7 +25,7 @@ const PlayerContextProvider = (props) => {
     audioRef,
     seekBg,
     seekBar,
-    track,setTrack,
+    track, setTrack,
     playStatus, setPlayStatus,
     time,
     setTime,
