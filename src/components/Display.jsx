@@ -21,7 +21,7 @@ const Display = () => {
       displayRef.current.style.backgroundColor = `linear-gradient(${bgColor},#121212)`
     }
     else{
-      displayRef.current.style.backgroundColor = `#121212)`
+      displayRef.current.style.backgroundColor = `#121212`
     }
   })
 
