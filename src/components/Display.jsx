@@ -20,6 +20,7 @@ const Display = () => {
     if (isAlbum) {
       displayRef.current.style.backgroundColor = `linear-gradient(${bgColor},#121212)`
     }
+    else
   })
 
   return (
