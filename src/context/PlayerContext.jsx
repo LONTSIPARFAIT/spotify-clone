@@ -6,7 +6,7 @@ const PlayerContextProvider = (props) => {
 
   const audioRef = useRef()
 
-  const 
+  const seekBg = useRef()
 
   const contextValue = {
     audioRef
