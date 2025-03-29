@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const PlayerContext = createContext();
 
-const PlayerContextProvider = (props) => {
+export const PlayerContextProvider = (props) => {
 
   const contextValue = {
 
