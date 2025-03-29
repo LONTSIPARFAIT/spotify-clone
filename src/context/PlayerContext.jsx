@@ -32,8 +32,8 @@ const PlayerContextProvider = (props) => {
   }
 
   useEffect(() => {
-    
-  })
+
+  },[audioRef])
 
   const contextValue = {
     audioRef,
