@@ -25,6 +25,8 @@ const PlayerContextProvider = (props) => {
     audioRef,
     seekBg,
     seekBar,
+    track,
+    setTrack
   };
 
   return (
