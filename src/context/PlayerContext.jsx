@@ -38,6 +38,7 @@ const PlayerContextProvider = (props) => {
     track, setTrack,
     playStatus, setPlayStatus,
     time, setTime,
+    play,pause,
   };
 
   return (
