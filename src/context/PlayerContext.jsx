@@ -23,6 +23,7 @@ const PlayerContextProvider = (props) => {
 
   const play = () => {
     audioRef.current.play();
+    setPlayStatus
   }
 
   const contextValue = {
