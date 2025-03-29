@@ -11,7 +11,9 @@ const PlayerContextProvider = (props) => {
 
   const [track,setTrack] = useState(songsData[0])
   const [playStatus,setPlayStatus] = useState(false)
-  const [time,setTime]
+  const [time,setTime] = useState({
+    
+  })
 
   const contextValue = {
     audioRef,
