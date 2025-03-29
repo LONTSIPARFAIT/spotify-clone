@@ -15,7 +15,7 @@ const Display = () => {
   // console.log(albumId);
   const bgColor = albumsData[Number(albumId)].bgColor
   // console.log(bgColor);
-  console.log(displayRef);
+  // console.log(displayRef);
 
   useEffect(() => {
     if (isAlbum) {
