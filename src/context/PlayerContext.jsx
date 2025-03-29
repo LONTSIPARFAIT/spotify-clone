@@ -27,7 +27,9 @@ const PlayerContextProvider = (props) => {
     seekBar,
     track,
     setTrack,
-    playStatus, setPlayStatus
+    playStatus,
+    setPlayStatus,
+    time, setTime
   };
 
   return (
