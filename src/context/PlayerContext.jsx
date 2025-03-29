@@ -21,6 +21,8 @@ const PlayerContextProvider = (props) => {
     },
   });
 
+  const
+
   const contextValue = {
     audioRef,
     seekBg,
