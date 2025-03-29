@@ -32,7 +32,9 @@ const PlayerContextProvider = (props) => {
   }
 
   useEffect(() => {
-
+    setTimeout(() => {
+      
+    }, timeout);
   },[audioRef])
 
   const contextValue = {
