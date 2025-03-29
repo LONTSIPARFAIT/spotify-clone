@@ -27,7 +27,7 @@ const PlayerContextProvider = (props) => {
   }
 
   const pause = () => {
-    audioRef.current.play();
+    audioRef.current.pause();
     setPlayStatus(true)
   }
 
