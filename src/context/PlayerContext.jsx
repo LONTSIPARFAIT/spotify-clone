@@ -1,4 +1,4 @@
-import { createContext, useRef } from "react";
+import { createContext, useRef, useState } from "react";
 
 export const PlayerContext = createContext();
 
@@ -8,7 +8,7 @@ const PlayerContextProvider = (props) => {
   const seekBg = useRef()
   const seekBar = useRef()
 
-  const [track,setTrack]
+  const [track,setTrack] = useState
 
   const contextValue = {
     audioRef,
