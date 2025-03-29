@@ -2,7 +2,7 @@ import { createContext, useRef } from "react";
 
 export const PlayerContext = createContext();
 
-export const PlayerContextProvider = (props) => {
+const PlayerContextProvider = (props) => {
 
   const audioRef = useRef()
 

@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import Sidebar from "./components/Sidebar";
 import Player from "./components/Player";
 import Display from "./components/Display";
+import { PlayerContext } from "./context/PlayerContext";
 
 const App = () => {
 
-  const { audioRef } = useContext(Pla)
+  const { audioRef } = useContext(PlayerContext)
 
   return (
     <div className="h-screen bg-black">
