@@ -7,7 +7,7 @@ export const PlayerContextProvider = (props) => {
   const audioRef = useRef()
 
   const contextValue = {
-
+    audioRef
   }
 
   return (
