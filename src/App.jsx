@@ -5,7 +5,7 @@ import Display from "./components/Display";
 
 const App = () => {
 
-  const {audioRef} = useContext()
+  const {audioRef} = useContext(Pla)
 
   return (
     <div className="h-screen bg-black">
