@@ -1,6 +1,6 @@
 import { createContext, useRef } from "react";
 
-const PlayerContext = createContext();
+export const PlayerContext = createContext();
 
 export const PlayerContextProvider = (props) => {
 
@@ -17,5 +17,6 @@ export const PlayerContextProvider = (props) => {
   )
 
 }
+
 
 export default PlayerContextProvider;
