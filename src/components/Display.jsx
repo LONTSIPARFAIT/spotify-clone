@@ -18,7 +18,7 @@ const Display = () => {
 
   useEffect(() => {
     if (isAlbum) {
-      displayRef.current.style.backgroundColor = `linear-gradient(${bgColor},)`
+      displayRef.current.style.backgroundColor = `linear-gradient(${bgColor},#)`
     }
   })
 
