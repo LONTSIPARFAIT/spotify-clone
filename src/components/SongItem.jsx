@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
 const SongItem = ({ image, name, desc, id }) => {
 
-  const {playWithId}
+  const {playWithId} = useContext
 
   return (
     <div className="min-w-[180px] p-2 px-3 rounded cursor-pointer hover:bg-[#ffffff26]">
