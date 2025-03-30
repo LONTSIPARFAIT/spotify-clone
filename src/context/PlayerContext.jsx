@@ -54,7 +54,8 @@ const PlayerContextProvider = (props) => {
   }
 
   const seekSong = async (e) => {
-    d
+    console.log(e);
+    
   } 
 
   // useEffect(() => {
