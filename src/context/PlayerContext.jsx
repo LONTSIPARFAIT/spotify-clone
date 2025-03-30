@@ -115,6 +115,7 @@ const PlayerContextProvider = (props) => {
     play,pause,
     playWithId,
     previous,next,
+    seekSong,
   };
 
   return (
