@@ -121,7 +121,7 @@ export const albumsData = [
   {
     id: 6,
     name: "Happy Favorites",
-    image: img15,
+    image: img13,
     desc: "Your weekly update of the most played tracks",
     bgColor: "#744210",
   },
@@ -135,14 +135,7 @@ export const albumsData = [
   {
     id: 8,
     name: "Happy Favorites",
-    image: img15,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#744210",
-  },
-  {
-    id: 9,
-    name: "Happy Favorites",
-    image: img13,
+    image: img11,
     desc: "Your weekly update of the most played tracks",
     bgColor: "#744210",
   },
