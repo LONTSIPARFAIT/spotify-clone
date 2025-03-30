@@ -46,7 +46,7 @@ const PlayerContextProvider = (props) => {
   }
 
   const next = async () => {
-    if (track.id < songsData) {
+    if (track.id < songsData.length-1) {
       await setTrack(songsData[track.id-1])
       await audioRef.current.play()
       setPlayStatus(true)
