@@ -31,7 +31,9 @@ const PlayerContextProvider = (props) => {
     setPlayStatus(false)
   }
 
-  const playWithId = () =>
+  const playWithId = () => {
+    d
+  }
 
   // useEffect(() => {
   //   setTimeout(() => {
