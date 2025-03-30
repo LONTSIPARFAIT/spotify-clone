@@ -38,7 +38,9 @@ const PlayerContextProvider = (props) => {
   }
 
   const previous = async () => {
-    d
+    if (track.id) {
+      
+    }
   }
 
   // useEffect(() => {
