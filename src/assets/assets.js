@@ -41,6 +41,12 @@ import img16 from "./img16.jpg";
 import song1 from "./song1.mp3";
 import song2 from "./song2.mp3";
 import song3 from "./song3.mp3";
+import song4 from "./song1.mp3";
+import song5 from "./song2.mp3";
+import song6 from "./song3.mp3";
+import song7 from "./song1.mp3";
+import song8 from "./song2.mp3";
+import song3 from "./song3.mp3";
 
 export const assets = {
   bell_icon,
@@ -143,7 +149,7 @@ export const songsData = [
     id: 3,
     name: "Song Four",
     image: img4,
-    file: song1,
+    file: song4,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:50",
   },
@@ -151,7 +157,7 @@ export const songsData = [
     id: 4,
     name: "Song Five",
     image: img5,
-    file: song2,
+    file: song5,
     desc: "Put a smile on your face with these happy tunes",
     duration: "3:10",
   },
@@ -159,7 +165,7 @@ export const songsData = [
     id: 5,
     name: "Song Six",
     image: img14,
-    file: song3,
+    file: song6,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:45",
   },
@@ -167,7 +173,7 @@ export const songsData = [
     id: 6,
     name: "Song Seven",
     image: img7,
-    file: song1,
+    file: song7,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:18",
   },
@@ -175,7 +181,7 @@ export const songsData = [
     id: 7,
     name: "Song Eight",
     image: img12,
-    file: song2,
+    file: song8,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:35",
   },
