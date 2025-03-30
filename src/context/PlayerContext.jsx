@@ -80,9 +80,9 @@ const PlayerContextProvider = (props) => {
     audio.ontimeupdate = handleTimeUpdate;
   
     // Nettoyage : retire le gestionnaire quand le composant se démonte
-    return () => {
-      audio.ontimeupdate = null;
-    };
+    // return () => {
+    //   audio.ontimeupdate = null;
+    // };
   }, [audioRef]);
 
   const contextValue = {
