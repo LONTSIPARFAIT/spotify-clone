@@ -31,8 +31,8 @@ const PlayerContextProvider = (props) => {
     setPlayStatus(false)
   }
 
-  const playWithId = (id) => {
-    await
+  const playWithId = async (id) => {
+    await setTrack()
   }
 
   // useEffect(() => {
