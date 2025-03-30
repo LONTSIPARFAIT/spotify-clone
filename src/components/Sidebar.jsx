@@ -2,6 +2,9 @@ import React from 'react'
 import {assets} from '../assets/assets'
 
 const Sidebar = () => {
+  
+  const
+
   return (
     <div className='w-[25%] h-full bg-[#1b1b1b] p-2 flex-col gap-2 hidden lg:flex text-white'>
       <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
