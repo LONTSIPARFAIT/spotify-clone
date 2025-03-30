@@ -10,6 +10,8 @@ const DisplayAlbum = () => {
   const albumData = albumsData[id];
   // console.log(albumData);
 
+  const {playWithId}
+
   return (
     <>
       <Navbar />
