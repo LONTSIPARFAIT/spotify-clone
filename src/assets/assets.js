@@ -46,7 +46,7 @@ import song5 from "./song2.mp3";
 import song6 from "./song3.mp3";
 import song7 from "./song1.mp3";
 import song8 from "./song2.mp3";
-import song3 from "./song3.mp3";
+import song9 from "./song3.mp3";
 
 export const assets = {
   bell_icon,
@@ -110,6 +110,34 @@ export const albumsData = [
     image: img11,
     desc: "Your weekly update of the most played tracks",
     bgColor: "#234e52",
+  },
+  {
+    id: 5,
+    name: "Happy Favorites",
+    image: img15,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
+  },
+  {
+    id: 6,
+    name: "Happy Favorites",
+    image: img15,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
+  },
+  {
+    id: 9,
+    name: "Happy Favorites",
+    image: img15,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
+  },
+  {
+    id: ,
+    name: "Happy Favorites",
+    image: img15,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
   },
   {
     id: 5,
@@ -182,6 +210,14 @@ export const songsData = [
     name: "Song Eight",
     image: img12,
     file: song8,
+    desc: "Put a smile on your face with these happy tunes",
+    duration: "2:35",
+  },
+  {
+    id: 8,
+    name: "Song Eight",
+    image: img12,
+    file: song9,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:35",
   },
