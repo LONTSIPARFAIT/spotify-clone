@@ -53,7 +53,7 @@ const PlayerContextProvider = (props) => {
     }
   }
 
-  const seekSong = 
+  const seekSong = async () => {} 
 
   // useEffect(() => {
   //   setTimeout(() => {
