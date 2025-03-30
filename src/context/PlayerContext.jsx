@@ -58,7 +58,7 @@ const PlayerContextProvider = (props) => {
   
     // Définit le gestionnaire de mise à jour du temps
     const handleTimeUpdate = () => {
-      seekBar.current.style.width = (Math.floor(audioRef.current.currentTime/audioRef.current.currentTime))
+      seekBar.current.style.width = (Math.floor(audioRef.current.currentTime/audioRef.current.duration))
       setTime({
         currentTime: {
           second: Math.floor(audio.currentTime % 60),
