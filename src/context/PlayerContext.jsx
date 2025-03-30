@@ -71,8 +71,8 @@ const PlayerContextProvider = (props) => {
           minute: Math.floor(audio.currentTime / 60),
         },
         totalTime: {
-          second: Math.floor(audio.duration % 60),
-          minute: Math.floor(audio.duration / 60),
+          second: audio.duration ? Math.floor(audio.duration % 60) : 0,
+          minute: audio.duration ? Math.floor(audio.duration / 60) : 0,
         },
       });
     };
