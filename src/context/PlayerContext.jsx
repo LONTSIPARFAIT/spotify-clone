@@ -8,7 +8,7 @@ const PlayerContextProvider = (props) => {
   const seekBg = useRef();
   const seekBar = useRef();
 
-  const [track, setTrack] = useState(songsData[1]);
+  const [track, setTrack] = useState(songsData[0]);
   const [playStatus, setPlayStatus] = useState(false);
   const [time, setTime] = useState({
     currentTime: {
@@ -58,6 +58,7 @@ const PlayerContextProvider = (props) => {
   
     // Définit le gestionnaire de mise à jour du temps
     const handleTimeUpdate = () => {
+      seekBar.current
       setTime({
         currentTime: {
           second: Math.floor(audio.currentTime % 60),
