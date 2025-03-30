@@ -54,7 +54,7 @@ const PlayerContextProvider = (props) => {
   }
 
   const seekSong = async (e) => {
-    audioRef
+    audioRef.current.
     console.log(e);
     
   } 
