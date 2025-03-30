@@ -176,7 +176,7 @@ export const songsData = [
   },
   {
     id: 4,
-    name: "Song Five",
+    name: "KS Bloom -  ALLOCO",
     image: img5,
     file: song5,
     desc: "Put a smile on your face with these happy tunes",
