@@ -16,7 +16,7 @@ const PlayerContextProvider = (props) => {
       minute: 0,
     },
     totalTime: {
-      second: 20,
+      second: 0,
       minute: 0,
     },
   });
@@ -38,11 +38,11 @@ const PlayerContextProvider = (props) => {
         setTimeout({
           currentTime: {
             second: Math.floor(audioRef.current.currentTime % 60),
-            minute: audioRef.current.currentTime / 60,
+            minute: Math.floor(audioRef.current.currentTime / 60),
           },
           totalTime: {
-            second: 20,
-            minute: 0,
+            second: Math.floor(audioRef.current.duration % 60),
+            minute: Math.floor(audioRef.current.duration / 60),
           }
         });
       }
