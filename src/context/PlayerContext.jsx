@@ -38,8 +38,8 @@ const PlayerContextProvider = (props) => {
   }
 
   const previous = async () => {
-    if (track.id) {
-      
+    if (track.id>0) {
+      await
     }
   }
 
