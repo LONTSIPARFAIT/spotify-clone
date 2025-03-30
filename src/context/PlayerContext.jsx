@@ -11,14 +11,14 @@ const PlayerContextProvider = (props) => {
   const [track, setTrack] = useState(songsData[0]);
   const [playStatus, setPlayStatus] = useState(false);
   const [time, setTime] = useState({
-    currentTime: {
-      second: 0,
-      minute: 0,
-    },
-    totalTime: {
-      second: 0,
-      minute: 0,
-    },
+    // currentTime: {
+    //   second: 0,
+    //   minute: 0,
+    // },
+    // totalTime: {
+    //   second: 0,
+    //   minute: 0,
+    // },
   });
 
   const play = () => {
