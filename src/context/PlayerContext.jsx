@@ -32,7 +32,7 @@ const PlayerContextProvider = (props) => {
   }
 
   const playWithId = (id) => {
-    d
+    await
   }
 
   // useEffect(() => {
