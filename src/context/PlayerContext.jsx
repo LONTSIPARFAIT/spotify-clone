@@ -37,7 +37,7 @@ const PlayerContextProvider = (props) => {
     setPlayStatus(true)
   }
 
-  const
+  const previous = 
 
   // useEffect(() => {
   //   setTimeout(() => {
