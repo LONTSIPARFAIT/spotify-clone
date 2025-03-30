@@ -45,8 +45,8 @@ import song4 from "./song4.mp3";
 import song5 from "./song5.mp3";
 import song6 from "./song6.mp3";
 import song7 from "./song7.mp3";
-import song8 from "./song2.mp3";
-import song9 from "./song3.mp3";
+import song8 from "./song8.mp3";
+import song9 from "./song9.mp3";
 
 export const assets = {
   bell_icon,
