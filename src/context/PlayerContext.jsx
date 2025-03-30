@@ -32,7 +32,7 @@ const PlayerContextProvider = (props) => {
   }
 
   const playWithId = async (id) => {
-    await setTrack()
+    await setTrack(songsData[id])
   }
 
   // useEffect(() => {
