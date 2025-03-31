@@ -176,7 +176,7 @@ export const songsData = [
   },
   {
     id: 4,
-    name: "KS Bloom ",
+    name: "KS Bloom Alloco",
     image: img5,
     file: song5,
     desc: "Put a smile on your face with these happy tunes",
@@ -184,7 +184,7 @@ export const songsData = [
   },
   {
     id: 5,
-    name: "KS Bloom - C'est Dieu",
+    name: "C'est Dieu KS",
     image: img14,
     file: song6,
     desc: "Put a smile on your face with these happy tunes",
@@ -208,7 +208,7 @@ export const songsData = [
   },
   {
     id: 8,
-    name: "Disciple dans la ville",
+    name:  "Discipledanslaville",
     image: img11,
     file: song9,
     desc: "Put a smile on your face with these happy tunes",
