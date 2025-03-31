@@ -48,7 +48,7 @@ import song7 from "./song7.mp3";
 import song8 from "./song8.mp3";
 import song9 from "./song9.mp3";
 import song10 from "./song10.mp3";
-import song9 from "./song1.mp3";
+import song11 from "./song11.mp3";
 
 export const assets = {
   bell_icon,
@@ -141,6 +141,20 @@ export const albumsData = [
     desc: "Your weekly update of the most played tracks",
     bgColor: "#744210",
   },
+  {
+    id: 9,
+    name: "Happy Favorites",
+    image: img11,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
+  },
+  {
+    id: 10,
+    name: "Happy Favorites",
+    image: img11,
+    desc: "Your weekly update of the most played tracks",
+    bgColor: "#744210",
+  },
 ];
 
 export const songsData = [
@@ -225,7 +239,7 @@ export const songsData = [
     duration: "2:35",
   },
   {
-    id: ,
+    id: 10,
     name: "Discipledanslaville",
     image: img11,
     file: song11,
