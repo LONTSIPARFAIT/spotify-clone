@@ -47,6 +47,8 @@ import song6 from "./song6.mp3";
 import song7 from "./song7.mp3";
 import song8 from "./song8.mp3";
 import song9 from "./song9.mp3";
+import song10 from "./song10.mp3";
+import song9 from "./song1.mp3";
 
 export const assets = {
   bell_icon,
@@ -211,6 +213,22 @@ export const songsData = [
     name: "Discipledanslaville",
     image: img11,
     file: song9,
+    desc: "Put a smile on your face with these happy tunes",
+    duration: "2:35",
+  }, 
+  {
+    id: 9,
+    name: "Discipledanslaville",
+    image: img11,
+    file: song10,
+    desc: "Put a smile on your face with these happy tunes",
+    duration: "2:35",
+  },
+  {
+    id: ,
+    name: "Discipledanslaville",
+    image: img11,
+    file: song11,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:35",
   },
