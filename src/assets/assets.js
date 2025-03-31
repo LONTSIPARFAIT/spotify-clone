@@ -208,7 +208,7 @@ export const songsData = [
   },
   {
     id: 8,
-    name:  "Discipledanslaville",
+    name: "Discipledanslaville",
     image: img11,
     file: song9,
     desc: "Put a smile on your face with these happy tunes",
