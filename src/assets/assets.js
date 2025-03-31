@@ -232,15 +232,15 @@ export const songsData = [
   }, 
   {
     id: 9,
-    name: "Discipledanslaville",
-    image: img11,
+    name: "Oh mon ame",
+    image: img1,
     file: song10,
     desc: "Put a smile on your face with these happy tunes",
     duration: "2:35",
   },
   {
     id: 10,
-    name: "Discipledanslaville",
+    name: "7event",
     image: img11,
     file: song11,
     desc: "Put a smile on your face with these happy tunes",
