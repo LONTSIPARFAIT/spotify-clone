@@ -87,12 +87,14 @@ const PlayerContextProvider = (props) => {
       seekBar.current.style.width = (Math.floor(audioRef.current.currentTime/audioRef.current.duration*100))+"%"
       setTime({
         currentTime: {
-          second: Math.floor(audio.currentTime % 60),
-          minute: Math.floor(audio.currentTime / 60),
+          // second: Math.floor(audio.currentTime % 60),
+          // minute: Math.floor(audio.currentTime / 60),
         },
         totalTime: {
-          second: audio.duration ? Math.floor(audio.duration % 60) : 0,
-          minute: audio.duration ? Math.floor(audio.duration / 60) : 0,
+          // second: audio.duration ? Math.floor(audio.duration % 60) : 0,
+          // minute: audio.duration ? Math.floor(audio.duration / 60) : 0,
+          second: formatTime(duration % 60),
+          minute: formatTime(duration / 60),
         },
       });
     };
