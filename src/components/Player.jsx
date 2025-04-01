@@ -47,6 +47,7 @@ const Player = () => {
         <img className="w-4" src={assets.mini_player_icon} alt="" />
         <img className="w-4" src={assets.zoom_icon} alt="" />
       </div> 
+      
     </div>
   );
 };
