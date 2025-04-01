@@ -84,6 +84,7 @@ const PlayerContextProvider = (props) => {
   
     // Vérifie que l'élément audio existe
     if (!audio) return;
+    audio.volume = volume;
   
     // Définit le gestionnaire de mise à jour du temps
     const handleTimeUpdate = () => {
@@ -106,7 +107,7 @@ const PlayerContextProvider = (props) => {
     return () => {
       audio.ontimeupdate = null;
     };
-  }, [audioRef]);
+  }, [audioRef, volume]);
 
   const contextValue = {
     audioRef,
@@ -119,6 +120,7 @@ const PlayerContextProvider = (props) => {
     playWithId,
     previous,next,
     seekSong,
+    volume,setVolume,
   };
 
   return (
