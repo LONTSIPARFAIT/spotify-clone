@@ -12,15 +12,11 @@ const PlayerContextProvider = (props) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [volume, setVolume] = useState(1);
   const [time, setTime] = useState({
-    currentTime: {
-      second: 0,
-      minute: 0,
-    },
-    totalTime: {
-      second: 0,
-      minute: 0,
-    },
+    currentTime: { second: "00", minute: "0" },
+    totalTime: { second: "00", minute: "0" },
   });
+
+  const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
 
   const play = () => {
     audioRef.current.play();
