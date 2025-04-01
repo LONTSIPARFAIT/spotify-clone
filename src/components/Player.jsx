@@ -4,7 +4,7 @@ import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
 
-  const { track,seekBg,seekBar,playStatus,play,pause,time,previous,next,seekSong } = useContext(PlayerContext)
+  const { track,seekBg,seekBar,playStatus,play,pause,time,previous,next,seekSong, volume, setVolume } = useContext(PlayerContext)
 
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
@@ -41,6 +41,15 @@ const Player = () => {
         <img className="w-4" src={assets.queue_icon} alt="" />
         <img className="w-4" src={assets.speaker_icon} alt="" />
         <img className="w-4" src={assets.volume_icon} alt="" />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={(e) => setVolume(e.target.value)}
+          className="w-20 h-1 bg-slate-50 rounded"
+        />
         <div className="w-20 bg-slate-50 h-1 rounded">
 
         </div>
