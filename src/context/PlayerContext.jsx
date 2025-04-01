@@ -75,30 +75,28 @@ const PlayerContextProvider = (props) => {
   //   }, 1000);
   // },[audioRef])
 
-  useEffect(() => {
+ useEffect(() => {
     const audio = audioRef.current;
-  
-    // Vérifie que l'élément audio existe
     if (!audio) return;
+
     audio.volume = volume;
-  
-    // Définit le gestionnaire de mise à jour du temps
+
     const handleTimeUpdate = () => {
-      seekBar.current.style.width = (Math.floor(audioRef.current.currentTime/audioRef.current.duration*100))+"%"
+      const current = audio.currentTime;
+      const duration = audio.duration || 0;
+      seekBar.current.style.width = `${(current / duration) * 100 || 0}%`;
       setTime({
         currentTime: {
-          // second: Math.floor(audio.currentTime % 60),
-          // minute: Math.floor(audio.currentTime / 60),
+          second: formatTime(current % 60),
+          minute: formatTime(current / 60),
         },
         totalTime: {
-          // second: audio.duration ? Math.floor(audio.duration % 60) : 0,
-          // minute: audio.duration ? Math.floor(audio.duration / 60) : 0,
           second: formatTime(duration % 60),
           minute: formatTime(duration / 60),
         },
       });
     };
-  
+
     audio.ontimeupdate = handleTimeUpdate;
   
     // Nettoyage : retire le gestionnaire quand le composant se démonte
