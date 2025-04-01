@@ -127,6 +127,23 @@ const PlayerContextProvider = (props) => {
     };
   }, [audioRef, volume]);
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(
+        (position) => {
+          setSpeed(position.coords.speed || 0); // Vitesse en m/s
+          const tempo = speed > 2 ? "rapide" : "lent";
+          const song = songsData.find((s) => s.desc.includes(tempo)) || songsData[0];
+          setTrack(song);
+        },
+        (error) => {
+          console.error("Erreur de géolocalisation :", error);
+        },
+        { enableHighAccuracy: true }
+      );
+    }
+  }, [speed]);
+
   const contextValue = {
     audioRef,
     seekBg,
