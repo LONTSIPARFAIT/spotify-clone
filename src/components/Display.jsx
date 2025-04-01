@@ -31,6 +31,7 @@ const Display = () => {
       <Routes>
         <Route path='/' element={<DisplayHome />}/>
         <Route path="/album/:id" element={<DisplayAlbum />}/>
+        <Route path="/search" element={<DisplaySearch />} />
       </Routes>
     </div>
   )
