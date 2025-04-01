@@ -25,7 +25,7 @@ const Player = () => {
             :<img onClick={play} className="w-4 cursor-pointer" src={assets.play_icon} alt=""/>
           }
           <img onClick={next} className="w-4 cursor-pointer" src={assets.next_icon} alt=""/>
-          <img className="w-4 cursor-pointer" src={assets.loop_icon} alt=""/>
+          <img className="w-4 cursor-pointer"  src={assets.loop_icon} alt=""/>
         </div>
         <div className="flex items-center gap-5">
           <p>{time.currentTime.minute}:{time.currentTime.second}</p>
