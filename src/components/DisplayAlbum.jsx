@@ -11,7 +11,7 @@ const DisplayAlbum = () => {
   const albumData = albumsData[id];
   // console.log(albumData);
 
-  const {playWithId} = useContext(PlayerContext)
+  const { playWithId } = useContext(PlayerContext);
 
   return (
     <>
@@ -47,7 +47,8 @@ const DisplayAlbum = () => {
       <hr />
       {songsData.map((item, index) => {
         return (
-          <div onClick={() => playWithId(item.id)}
+          <div
+            onClick={() => playWithId(item.id)}
             key={index}
             className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:text-[#ffffff2b] cursor-pointer"
           >
@@ -55,9 +56,12 @@ const DisplayAlbum = () => {
               <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
               <img className="inline w-10 mr-5" src={item.image} alt="" />
               <span>
-              {item.name} <br />
-              <span className="text-sm text-[#a7a7a7]">{item.artist}</span> {/* Ajoute l’artiste */}
-            </span>
+                {item.name} <br />
+                <span className="text-sm text-[#a7a7a7]">
+                  {item.artist}
+                </span>{" "}
+                {/* Ajoute l’artiste */}
+              </span>
             </p>
             <p className="text-[15px]">{albumData.name}</p>
             <p className="text-[15px] hidden sm:block">il y a 5 jours</p>
