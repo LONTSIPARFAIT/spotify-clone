@@ -40,6 +40,22 @@ const PlayerContextProvider = (props) => {
     }
   };
 
+  const playByQuery = async (query) => {
+    const match = songsData.find((song) =>
+      song.name.toLowerCase().includes(query.toLowerCase()) ||
+      song.desc.toLowerCase().includes(query.toLowerCase())
+    );
+    if (match) {
+      await setTrack(match);
+      try {
+        await audioRef.current.play();
+        setPlayStatus(true);
+      } catch (error) {
+        console.error("Erreur lors de la lecture :", error);
+      }
+    }
+  };
+
   const previous = async () => {
     if (track.id>0) {
       await setTrack(songsData[track.id-1])
