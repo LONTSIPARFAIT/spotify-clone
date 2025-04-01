@@ -11,6 +11,7 @@ const PlayerContextProvider = (props) => {
   const [track, setTrack] = useState(songsData[0]);
   const [playStatus, setPlayStatus] = useState(false);
   const [volume, setVolume] = useState(1);
+  const [speed, setSpeed] = useState(0);
   const [time, setTime] = useState({
     currentTime: { second: "00", minute: "0" },
     totalTime: { second: "00", minute: "0" },
@@ -29,10 +30,15 @@ const PlayerContextProvider = (props) => {
   }
 
   const playWithId = async (id) => {
-    await setTrack(songsData[id])
-    await audioRef.current.play()
-    setPlayStatus(true)
-  }
+    if (!songsData[id]) return;
+    await setTrack(songsData[id]);
+    try {
+      await audioRef.current.play();
+      setPlayStatus(true);
+    } catch (error) {
+      console.error("Erreur lors de la lecture :", error);
+    }
+  };
 
   const previous = async () => {
     if (track.id>0) {
