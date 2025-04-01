@@ -13,6 +13,14 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <img onClick={()=>navigate(-1)} className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_left} alt="" />
           <img onClick={()=>navigate(1)} className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_right} alt="" />
+          <input
+            type="text"
+            placeholder="Dis-moi quoi jouer..."
+            onKeyPress={(e) => {
+              if (e.key === "Enter") playByQuery(e.target.value);
+            }}
+            className="bg-black px-4 py-1 rounded-2xl text-white"
+          />
         </div>
       <div className="flex items-center gap-4">
           <p className='bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer'>Explore Premium</p>
