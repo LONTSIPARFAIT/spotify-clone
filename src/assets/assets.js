@@ -197,7 +197,7 @@ export const songsData = [
     name: "7event",
     image: img12,
     file: song11,
-    artist: "Seven",
+    artist: "Sevent",
     genre: "Afrobeat",
     desc: "An energetic Afrobeat track",
     duration: "2:35",
