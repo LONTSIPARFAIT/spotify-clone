@@ -12,6 +12,7 @@ const Player = () => {
         <img className="w-12" src={track.image} alt="" />
         <div className="">
           <p> {track.name} </p>
+          <p> {track.artist} </p>
           <p> {track.desc.slice(0, 12)} </p>
         </div>
       </div>
