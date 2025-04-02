@@ -187,7 +187,7 @@ export const songsData = [
     name: "Oh mon ame",
     image: img1,
     file: song10,
-    artist: "B",
+    artist: "Bi",
     genre: "Gospel",
     desc: "A soulful gospel song",
     duration: "2:35",
