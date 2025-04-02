@@ -10,7 +10,7 @@ const PlayerContextProvider = (props) => {
 
   const [track, setTrack] = useState(songsData[0]);
   const [playStatus, setPlayStatus] = useState(false);
-  const [volume, setVolume] = useState();
+  const [volume, setVolume] = useState(1);
   const [speed, setSpeed] = useState(0);
   const [time, setTime] = useState({
     currentTime: { second: "00", minute: "0" },
