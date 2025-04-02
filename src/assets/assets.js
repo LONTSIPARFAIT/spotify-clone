@@ -197,7 +197,7 @@ export const songsData = [
     name: "7event",
     image: img4,
     file: img12,
-    artist: "KS Bloom",
+    artist: "S",
     genre: "Afrobeat",
     desc: "An energetic Afrobeat track",
     duration: "2:35",
