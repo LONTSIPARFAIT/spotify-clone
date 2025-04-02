@@ -14,7 +14,7 @@ const PlayerContextProvider = (props) => {
   const [speed, setSpeed] = useState(0);
   const [time, setTime] = useState({
     currentTime: { second: "00", minute: "0" },
-    totalTime: { second: "00", minute: "0" },
+    totalTime: { second: "00", minute: "00" },
   });
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
