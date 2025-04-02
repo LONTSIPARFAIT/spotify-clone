@@ -196,7 +196,7 @@ export const songsData = [
     id: 10,
     name: "7event",
     image: img4,
-    file: song11,
+    file: img12,
     artist: "KS Bloom",
     genre: "Afrobeat",
     desc: "An energetic Afrobeat track",
