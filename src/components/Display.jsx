@@ -33,7 +33,7 @@ const Display = () => {
         <Route path='/' element={<DisplayHome />}/>
         <Route path="/album/:id" element={<DisplayAlbum />}/>
         <Route path="/search" element={<DisplaySearch />} />
-        <Route path="/playlist" element={<DisplaySearch />} />
+        {/* <Route path="/playlist" element={<DisplaySearch />} /> */}
       </Routes>
     </div>
   )
