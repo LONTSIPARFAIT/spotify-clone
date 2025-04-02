@@ -29,7 +29,7 @@ const DisplaySearch = () => {
               id={song.id}
               name={song.name}
               image={song.image}
-              desc={song.desc} 
+              desc={song.desc}
             />
           ))}
         </div>
