@@ -155,6 +155,7 @@ useEffect(() => {
         (position) => {
           setSpeed(position.coords.speed || 0); // Vitesse en m/s
           const tempo = speed > 2 ? "rapide" : "lent";
+          const genre = speed > 2 ? "Afrobeat" : speed > 1 ? "Pop" : "Gospel";
           const song = songsData.find((s) => s.desc.includes(tempo)) || songsData[0];
           setTrack(song);
         },
