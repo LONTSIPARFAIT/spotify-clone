@@ -24,7 +24,69 @@ const PlayerContextProvider = (props) => {
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
 
-  
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognition.current = new SpeechRecognition();
+      recognition.current.continuous = false;
+      recognition.current.interimResults = false;
+      recognition.current.lang = "fr-FR";
+
+      recognition.current.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase().trim();
+        setVoiceMessage(`Commande détectée : ${transcript}`);
+        setTimeout(() => setVoiceMessage(""), 3000); // Efface le message après 3 secondes
+        handleVoiceCommand(transcript);
+      };
+
+      recognition.current.onerror = (event) => {
+        console.error("Erreur de reconnaissance vocale :", event.error);
+        setVoiceMessage("Erreur de reconnaissance vocale");
+        setTimeout(() => setVoiceMessage(""), 3000);
+        setIsListening(false);
+      };
+
+      recognition.current.onend = () => {
+        setIsListening(false);
+        setVoiceMessage("");
+      };
+    }
+  }, []);
+
+  const handleVoiceCommand = (command) => {
+    if (command.includes("joue") || command.includes("play")) {
+      if (command.includes("suivante") || command.includes("next")) {
+        next();
+      } else if (command.includes("précédente") || command.includes("previous")) {
+        previous();
+      } else {
+        const query = command.replace("joue", "").replace("play", "").trim();
+        playByQuery(query);
+      }
+    } else if (command.includes("pause")) {
+      pause();
+    } else if (command.includes("reprends") || command.includes("resume")) {
+      play();
+    }
+  };
+
+  const toggleVoiceRecognition = () => {
+    if (!recognition.current) {
+      setVoiceMessage("Reconnaissance vocale non prise en charge");
+      setTimeout(() => setVoiceMessage(""), 3000);
+      return;
+    }
+
+    if (isListening) {
+      recognition.current.stop();
+      setIsListening(false);
+    } else {
+      recognition.current.start();
+      setIsListening(true);
+      setVoiceMessage("Écoute en cours...");
+    }
+  };
+
 // Charge les durées des chansons au démarrage
 useEffect(() => {
   const loadDurations = async () => {
@@ -187,6 +249,9 @@ useEffect(() => {
     seekSong,
     volume,setVolume,
     songDurations,
+    toggleVoiceRecognition,
+    isListening,
+    voiceMessage,
   };
 
   return (

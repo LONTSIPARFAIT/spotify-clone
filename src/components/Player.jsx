@@ -4,7 +4,7 @@ import { PlayerContext } from "../context/PlayerContext";
 
 const Player = () => {
 
-  const { track,seekBg,seekBar,playStatus,play,pause,time,previous,next,seekSong, volume, setVolume } = useContext(PlayerContext)
+  const { track,seekBg,seekBar,playStatus,play,pause,time,previous,next,seekSong, volume, setVolume,toggleVoiceRecognition,isListening,voiceMessage, } = useContext(PlayerContext)
 
   return (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
