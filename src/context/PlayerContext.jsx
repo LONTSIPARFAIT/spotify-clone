@@ -123,7 +123,7 @@ const PlayerContextProvider = (props) => {
     if (!recognition.current) {
       console.warn("Reconnaissance vocale non prise en charge");
       setVoiceMessage("Reconnaissance vocale non prise en charge");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      setTimeout(() => setVoiceMessage(""), 5000);
       return;
     }
 
