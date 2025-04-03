@@ -77,6 +77,85 @@ export const assets = {
   clock_icon,
 };
 
+export const albumsData = [
+  {
+    id: 0,
+    name: "Top 50 Global",
+    image: img8,
+    desc: "The most played tracks worldwide",
+    bgColor: "#2a4365",
+  },
+  {
+    id: 1,
+    name: "Top 50 India",
+    image: img9,
+    desc: "India's biggest hits this week",
+    bgColor: "#22543d",
+  },
+  {
+    id: 2,
+    name: "Trending India",
+    image: img10,
+    desc: "What's trending in India",
+    bgColor: "#742a2a",
+  },
+  {
+    id: 3,
+    name: "Trending Global",
+    image: img16,
+    desc: "Global trending tracks",
+    bgColor: "#44337a",
+  },
+  {
+    id: 4,
+    name: "Mega Hits",
+    image: img11,
+    desc: "Biggest hits of the year",
+    bgColor: "#234e52",
+  },
+  {
+    id: 5,
+    name: "Chill Lo-Fi",
+    image: img8,
+    desc: "Relax with lo-fi beats",
+    bgColor: "#744210",
+  },
+  {
+    id: 6,
+    name: "Pop Favorites",
+    image: img13,
+    desc: "Top pop hits",
+    bgColor: "#744210",
+  },
+  {
+    id: 7,
+    name: "Rock Classics",
+    image: img6,
+    desc: "Timeless rock anthems",
+    bgColor: "#744210",
+  },
+  {
+    id: 8,
+    name: "Sad Hour",
+    image: img11,
+    desc: "Melancholic tunes for reflection",
+    bgColor: "#744210",
+  },
+  {
+    id: 9,
+    name: "Indie Vibes",
+    image: img2,
+    desc: "Discover indie gems",
+    bgColor: "#744210",
+  },
+  {
+    id: 10,
+    name: "Hip-Hop Beats",
+    image: img1,
+    desc: "Fresh hip-hop tracks",
+    bgColor: "#744210",
+  },
+];
 
 export const songsData = [
   {
