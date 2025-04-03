@@ -46,6 +46,7 @@ const DisplayAlbum = () => {
       </div>
       <hr />
       {songsData.map((item, index) => {
+        const duration = songDurations[item.id] || { minute: "0", second: "00" };
         return (
           <div
             onClick={() => playWithId(item.id)}
@@ -65,7 +66,7 @@ const DisplayAlbum = () => {
             </p>
             <p className="text-[15px]">{albumData.name}</p>
             <p className="text-[15px] hidden sm:block">il y a 5 jours</p>
-            <p className="text-[15px] text-center">{item.duration}</p>
+            <p className="text-[15px] text-center">{`${duration.minute}:${duration.second}`}</p>
           </div>
         );
       })}
