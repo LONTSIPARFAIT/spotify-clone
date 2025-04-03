@@ -114,7 +114,7 @@ const PlayerContextProvider = (props) => {
     else {
       console.log("Commande non reconnue :", command);
       setVoiceMessage("Commande non reconnue");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      setTimeout(() => setVoiceMessage(""), 5000);
     }
   };
 
