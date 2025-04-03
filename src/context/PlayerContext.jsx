@@ -23,6 +23,8 @@ const PlayerContextProvider = (props) => {
 
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
+
+  
 // Charge les durées des chansons au démarrage
 useEffect(() => {
   const loadDurations = async () => {
