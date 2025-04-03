@@ -13,16 +13,16 @@ const PlayerContextProvider = (props) => {
 
   // États pour gérer le lecteur
   const [track, setTrack] = useState(songsData[0]); // Chanson actuellement sélectionnée (par défaut, la première chanson)
-  const [playStatus, setPlayStatus] = useState(false); // Statut de lecture (true = en lecture, false = en pause)
+  const [playStatus, setPlayStatus] = useState(false); // État de lecture (true = en lecture, false = en pause)
   const [volume, setVolume] = useState(0.5); // Volume initial à 50%
-  const [speed, setSpeed] = useState(0); // Vitesse de l'utilisateur (utilisée pour la géolocalisation)
+  const [speed, setSpeed] = useState(0); // Vitesse de l'utilisateur (pour la géolocalisation)
   const [time, setTime] = useState({
     currentTime: { second: "00", minute: "0" }, // Temps actuel de la chanson
     totalTime: { second: "00", minute: "0" }, // Durée totale de la chanson
   });
   const [songDurations, setSongDurations] = useState({}); // Durées des chansons (calculées dynamiquement)
-  const [isListening, setIsListening] = useState(false); // État pour savoir si la reconnaissance vocale est active
-  const [voiceMessage, setVoiceMessage] = useState(""); // Message affiché pour le feedback de la reconnaissance vocale
+  const [isListening, setIsListening] = useState(false); // État pour indiquer si la reconnaissance vocale est active
+  const [voiceMessage, setVoiceMessage] = useState(""); // Message à afficher pour le feedback vocal
   const recognition = useRef(null); // Référence pour l'instance de SpeechRecognition
 
   // Fonction pour formater le temps (ex. 5 secondes -> "05")
@@ -33,8 +33,8 @@ const PlayerContextProvider = (props) => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
       recognition.current = new SpeechRecognition();
-      recognition.current.continuous = false; // Pas de reconnaissance continue
-      recognition.current.interimResults = false; // Pas de résultats intermédiaires
+      recognition.current.continuous = false; // Ne pas écouter en continu
+      recognition.current.interimResults = false; // Ne pas retourner de résultats intermédiaires
       recognition.current.lang = "fr-FR"; // Langue française
 
       recognition.current.onstart = () => {
@@ -54,7 +54,7 @@ const PlayerContextProvider = (props) => {
       recognition.current.onerror = (event) => {
         console.error("Erreur de reconnaissance vocale :", event.error);
         setVoiceMessage(`Erreur : ${event.error}`);
-        setTimeout(() => setVoiceMessage(""), 5000);
+        setTimeout(() => setVoiceMessage(""), 3000);
         setIsListening(false);
       };
 
@@ -74,48 +74,60 @@ const PlayerContextProvider = (props) => {
   const handleVoiceCommand = (command) => {
     console.log("Interprétation de la commande :", command);
 
-    // Commandes pour jouer une chanson ou passer à la suivante/précédente
+    // Commande pour passer à la chanson suivante
+    // Modification : Déplacé en dehors du bloc "joue" pour reconnaître "suivante" seule
+    if (command.includes("suivante") || command.includes("next") || command.includes("suivant")) {
+      console.log("Passage à la chanson suivante");
+      next();
+      return; // Sortir de la fonction après avoir traité la commande
+    }
+
+    // Commande pour passer à la chanson précédente
+    // Modification : Déplacé en dehors du bloc "joue" pour reconnaître "précédente" seule
+    if (command.includes("précédente") || command.includes("previous") || command.includes("précédent")) {
+      console.log("Passage à la chanson précédente");
+      previous();
+      return; // Sortir de la fonction après avoir traité la commande
+    }
+
+    // Commande pour jouer une chanson par nom, description ou genre
     if (command.includes("joue") || command.includes("play") || command.includes("jouer")) {
       console.log("Commande 'joue' détectée");
-      if (command.includes("suivante") || command.includes("next") || command.includes("suivant")) {
-        console.log("Passage à la chanson suivante");
-        next();
-      } else if (command.includes("précédente") || command.includes("previous") || command.includes("précédent")) {
-        console.log("Passage à la chanson précédente");
-        previous();
-      } else {
-        // Nettoyage de la requête pour enlever "joue", "play", "jouer", et "du " (ex. "joue du gospel" -> "gospel")
-        let query = command
-          .replace("joue", "")
-          .replace("play", "")
-          .replace("jouer", "")
-          .replace("du ", "") // Ajouté pour gérer "joue du gospel"
-          .trim();
-        console.log("Recherche de la requête :", query);
-
-        // Ajout : gestion des cas où la requête contient "de " (ex. "joue de la pop" -> "pop")
-        query = query.replace("de la ", "").replace("de ", "");
-        console.log("Requête nettoyée :", query); // Ajouté : log pour voir la requête après nettoyage
-
+      let query = command
+        .replace("joue", "")
+        .replace("play", "")
+        .replace("jouer", "")
+        .replace("du ", "") // Supprime "du" pour faciliter la recherche (ex. "joue du gospel" -> "gospel")
+        .trim();
+      console.log("Recherche de la requête :", query);
+      if (query) {
         playByQuery(query);
+      } else {
+        console.log("Requête vide après nettoyage");
+        setVoiceMessage("Veuillez préciser une chanson ou un genre");
+        setTimeout(() => setVoiceMessage(""), 3000);
       }
+      return; // Sortir de la fonction après avoir traité la commande
     }
+
     // Commande pour mettre en pause
-    else if (command.includes("pause") || command.includes("stop")) {
+    if (command.includes("pause") || command.includes("stop")) {
       console.log("Commande 'pause' détectée");
       pause();
+      return; // Sortir de la fonction après avoir traité la commande
     }
+
     // Commande pour reprendre la lecture
-    else if (command.includes("reprends") || command.includes("resume") || command.includes("continue")) {
+    if (command.includes("reprends") || command.includes("resume") || command.includes("continue")) {
       console.log("Commande 'reprends' détectée");
       play();
+      return; // Sortir de la fonction après avoir traité la commande
     }
-    // Ajout : gestion des cas où la commande n'est pas reconnue
-    else {
-      console.log("Commande non reconnue :", command);
-      setVoiceMessage("Commande non reconnue");
-      setTimeout(() => setVoiceMessage(""), 5000);
-    }
+
+    // Gestion des cas où la commande n'est pas reconnue
+    console.log("Commande non reconnue :", command);
+    setVoiceMessage("Commande non reconnue");
+    setTimeout(() => setVoiceMessage(""), 3000);
   };
 
   // Fonction pour activer/désactiver la reconnaissance vocale
@@ -123,7 +135,7 @@ const PlayerContextProvider = (props) => {
     if (!recognition.current) {
       console.warn("Reconnaissance vocale non prise en charge");
       setVoiceMessage("Reconnaissance vocale non prise en charge");
-      setTimeout(() => setVoiceMessage(""), 5000);
+      setTimeout(() => setVoiceMessage(""), 3000);
       return;
     }
 
@@ -135,7 +147,7 @@ const PlayerContextProvider = (props) => {
       } catch (error) {
         console.error("Erreur lors du démarrage de la reconnaissance vocale :", error);
         setVoiceMessage("Erreur lors du démarrage de la reconnaissance");
-        setTimeout(() => setVoiceMessage(""), 5000);
+        setTimeout(() => setVoiceMessage(""), 3000);
       }
     }
   };
@@ -173,7 +185,7 @@ const PlayerContextProvider = (props) => {
     setPlayStatus(false);
   };
 
-  // Fonction pour jouer une chanson spécifique par ID
+  // Fonction pour jouer une chanson par son ID
   const playWithId = async (id) => {
     if (!songsData[id]) return;
     await setTrack(songsData[id]);
@@ -185,13 +197,12 @@ const PlayerContextProvider = (props) => {
     }
   };
 
-  // Fonction pour jouer une chanson en fonction d'une requête (ex. "joue du gospel")
+  // Fonction pour jouer une chanson par une requête (ex. "gospel", "C'est JESUS KS")
   const playByQuery = async (query) => {
     console.log("Recherche dans songsData avec la requête :", query);
     const match = songsData.find((song) => {
       const nameMatch = song.name.toLowerCase().includes(query.toLowerCase());
       const descMatch = song.desc.toLowerCase().includes(query.toLowerCase());
-      // Modification : ajout d'une vérification pour éviter une erreur si song.genre est undefined
       const genreMatch = song.genre && song.genre.toLowerCase().includes(query.toLowerCase());
       console.log(`Chanson : ${song.name}, nameMatch: ${nameMatch}, descMatch: ${descMatch}, genreMatch: ${genreMatch}`);
       return nameMatch || descMatch || genreMatch;
@@ -233,7 +244,7 @@ const PlayerContextProvider = (props) => {
     }
   };
 
-  // Fonction pour avancer ou reculer dans la chanson en cliquant sur la barre de progression
+  // Fonction pour avancer/reculer dans la chanson en cliquant sur la barre de progression
   const seekSong = async (e) => {
     audioRef.current.currentTime = (e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration;
     console.log(e);
@@ -277,8 +288,7 @@ const PlayerContextProvider = (props) => {
           setSpeed(position.coords.speed || 0);
           const genre = speed > 2 ? "Afrobeat" : speed > 1 ? "Pop" : "Gospel";
           const song = songsData.find((s) => s.genre === genre) || songsData[0];
-          // Modification : correction de l'appel à setTrack (un seul argument)
-          setTrack(song); // Avant : setTrack(song, songs) causait une erreur
+          setTrack(song);
         },
         (error) => {
           console.error("Erreur de géolocalisation :", error);
@@ -314,7 +324,6 @@ const PlayerContextProvider = (props) => {
     voiceMessage,
   };
 
-  // Fournit le contexte aux composants enfants
   return (
     <PlayerContext.Provider value={contextValue}>
       {props.children}
