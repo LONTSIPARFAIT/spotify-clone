@@ -11,7 +11,7 @@ const DisplayAlbum = () => {
   const albumData = albumsData[id];
   // console.log(albumData);
 
-  const { playWithId } = useContext(PlayerContext);
+  const { playWithId,songDurations } = useContext(PlayerContext);
 
   return (
     <>

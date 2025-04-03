@@ -16,6 +16,7 @@ const PlayerContextProvider = (props) => {
     currentTime: { second: "00", minute: "0" },
     totalTime: { second: "00", minute: "0" },
   });
+  const [songDurations, setSongDurations] = useState({});
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
 
@@ -156,6 +157,7 @@ const PlayerContextProvider = (props) => {
     previous,next,
     seekSong,
     volume,setVolume,
+    songDurations,
   };
 
   return (
