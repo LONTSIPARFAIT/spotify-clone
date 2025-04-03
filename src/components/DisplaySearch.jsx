@@ -8,7 +8,8 @@ const DisplaySearch = () => {
   const filteredSongs = songsData.filter(
     (song) =>
       song.name.toLowerCase().includes(query.toLowerCase()) ||
-      song.desc.toLowerCase().includes(query.toLowerCase())
+    song.desc.toLowerCase().includes(query.toLowerCase()) ||
+    song.genre.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
