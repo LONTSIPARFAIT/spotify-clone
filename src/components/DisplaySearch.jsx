@@ -18,7 +18,7 @@ const DisplaySearch = () => {
       <div className="mb-4">
         <input
           type="text"
-          placeholder="Rechercher une chanson..."
+          placeholder="Rechercher une chansonou ou un genre..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full p-2 rounded bg-[#242424] text-white"
