@@ -19,6 +19,8 @@ const PlayerContextProvider = (props) => {
   const [songDurations, setSongDurations] = useState({});
   const [isListening, setIsListening] = useState(false);
   const [voiceMessage, setVoiceMessage] = useState("");
+  const recognition = useRef(null);
+
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
 // Charge les durées des chansons au démarrage
