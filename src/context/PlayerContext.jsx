@@ -35,7 +35,7 @@ const PlayerContextProvider = (props) => {
       recognition.current.onresult = (event) => {
         const transcript = event.results[0][0].transcript.toLowerCase().trim();
         setVoiceMessage(`Commande détectée : ${transcript}`);
-        setTimeout(() => setVoiceMessage(""), 3000); // Efface le message après 3 secondes
+        setTimeout(() => setVoiceMessage(""), 5000); // Efface le message après 3 secondes
         handleVoiceCommand(transcript);
       };
 
