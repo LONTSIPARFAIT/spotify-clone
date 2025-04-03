@@ -168,24 +168,7 @@ useEffect(() => {
     
   } 
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-      
-  //     audioRef.current.ontimeupdate = () =>{
-  //       setTimeout({
-  //         currentTime: {
-  //           second: Math.floor(audioRef.current.currentTime % 60),
-  //           minute: Math.floor(audioRef.current.currentTime / 60),
-  //         },
-  //         totalTime: {
-  //           second: Math.floor(audioRef.current.duration % 60),
-  //           minute: Math.floor(audioRef.current.duration / 60),
-  //         }
-  //       });
-  //     }
 
-  //   }, 1000);
-  // },[audioRef])
 
  useEffect(() => {
     const audio = audioRef.current;
