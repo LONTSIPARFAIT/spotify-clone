@@ -54,7 +54,7 @@ const PlayerContextProvider = (props) => {
       recognition.current.onerror = (event) => {
         console.error("Erreur de reconnaissance vocale :", event.error);
         setVoiceMessage(`Erreur : ${event.error}`);
-        setTimeout(() => setVoiceMessage(""), 3000);
+        setTimeout(() => setVoiceMessage(""), 5000);
         setIsListening(false);
       };
 
