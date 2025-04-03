@@ -19,6 +19,26 @@ const PlayerContextProvider = (props) => {
   const [songDurations, setSongDurations] = useState({});
 
   const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
+// Charge les durées des chansons au démarrage
+useEffect(() => {
+  const loadDurations = async () => {
+    const durations = {};
+    for (const song of songsData) {
+      const audio = new Audio(song.file);
+      await new Promise((resolve) => {
+        audio.onloadedmetadata = () => {
+          durations[song.id] = {
+            minute: formatTime(audio.duration / 60),
+            second: formatTime(audio.duration % 60),
+          };
+          resolve();
+        };
+      });
+    }
+    setSongDurations(durations);
+  };
+  loadDurations();
+}, []);
 
   const play = () => {
     audioRef.current.play();
