@@ -34,10 +34,10 @@ import img9 from "./img9.jpg";
 import img10 from "./img10.jpg";
 import img11 from "./img11.jpg";
 import img12 from "./img12.jpg";
-import img13 from "./img13.jpg";
+// import img13 from "./img13.jpg";
 import img14 from "./img14.jpg";
-import img15 from "./img15.jpg";
-import img16 from "./img16.jpg";
+// import img15 from "./img15.jpg";
+// import img16 from "./img16.jpg";
 import song1 from "./song1.mp3";
 import song2 from "./song2.mp3";
 import song3 from "./song3.mp3";
@@ -50,7 +50,107 @@ import song9 from "./song9.mp3";
 import song10 from "./song10.mp3";
 import song11 from "./song11.mp3";
 
-
+export const songsData = [
+  {
+    id: 0,
+    name: "Song One",
+    image: img1,
+    file: song1,
+    desc: "A cheerful pop track by Artist One",
+    duration: "3:00",
+    genre: "Pop",
+  },
+  {
+    id: 1,
+    name: "Song Two",
+    image: img2,
+    file: song2,
+    desc: "Relaxing indie vibes by Artist Two",
+    duration: "2:20",
+    genre: "Indie",
+  },
+  {
+    id: 2,
+    name: "Song Three",
+    image: img3,
+    file: song3,
+    desc: "Energetic rock anthem by Artist Three",
+    duration: "2:32",
+    genre: "Rock",
+  },
+  {
+    id: 3,
+    name: "C'est JESUS KS",
+    image: img4,
+    file: song4,
+    desc: "Inspirational gospel by KS Bloom",
+    duration: "2:50",
+    genre: "Gospel",
+  },
+  {
+    id: 4,
+    name: "KS Bloom Alloco",
+    image: img5,
+    file: song5,
+    desc: "Upbeat afrobeat by KS Bloom",
+    duration: "3:10",
+    genre: "Afrobeat",
+  },
+  {
+    id: 5,
+    name: "C'est Dieu KS",
+    image: img14,
+    file: song6,
+    desc: "Spiritual vibes by KS Bloom",
+    duration: "2:45",
+    genre: "Gospel",
+  },
+  {
+    id: 6,
+    name: "C'est Tchor KS",
+    image: img7,
+    file: song7,
+    desc: "Catchy afrobeat by KS Bloom",
+    duration: "2:18",
+    genre: "Afrobeat",
+  },
+  {
+    id: 7,
+    name: "Dieu pile pas foto",
+    image: img12,
+    file: song8,
+    desc: "Uplifting gospel by Artist Seven",
+    duration: "2:35",
+    genre: "Gospel",
+  },
+  {
+    id: 8,
+    name: "Discipledanslaville",
+    image: img11,
+    file: song9,
+    desc: "Melancholic pop by Artist Eight",
+    duration: "2:35",
+    genre: "Pop",
+  },
+  {
+    id: 9,
+    name: "Oh mon ame",
+    image: img1,
+    file: song10,
+    desc: "Soulful track by Artist Nine",
+    duration: "2:35",
+    genre: "Soul",
+  },
+  {
+    id: 10,
+    name: "7event",
+    image: img4,
+    file: song11,
+    desc: "Energetic hip-hop by Artist Ten",
+    duration: "2:35",
+    genre: "Hip-Hop",
+  },
+];
 
 export const assets = {
   bell_icon,
