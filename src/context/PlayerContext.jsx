@@ -75,17 +75,20 @@ const PlayerContextProvider = (props) => {
     console.log("Interprétation de la commande :", command);
 
     // Commande pour passer à la chanson suivante
-    // Modification : Déplacé en dehors du bloc "joue" pour reconnaître "suivante" seule
     if (command.includes("suivante") || command.includes("next") || command.includes("suivant")) {
       console.log("Passage à la chanson suivante");
+      // Modification : Ajout d'un log pour vérifier la chanson actuelle avant le changement
+      console.log("Chanson actuelle avant changement :", track.name);
       next();
+      // Modification : Ajout d'un log pour vérifier la nouvelle chanson après le changement
+      // Note : Puisque setTrack est asynchrone, on ne peut pas loguer directement ici, mais on peut le faire dans next()
       return; // Sortir de la fonction après avoir traité la commande
     }
 
     // Commande pour passer à la chanson précédente
-    // Modification : Déplacé en dehors du bloc "joue" pour reconnaître "précédente" seule
     if (command.includes("précédente") || command.includes("previous") || command.includes("précédent")) {
       console.log("Passage à la chanson précédente");
+      console.log("Chanson actuelle avant changement :", track.name);
       previous();
       return; // Sortir de la fonction après avoir traité la commande
     }
@@ -232,6 +235,13 @@ const PlayerContextProvider = (props) => {
       await setTrack(songsData[track.id - 1]);
       await audioRef.current.play();
       setPlayStatus(true);
+      // Modification : Ajout d'un log pour confirmer le changement de chanson
+      console.log("Chanson précédente jouée :", songsData[track.id - 1].name);
+    } else {
+      // Modification : Ajout d'un message si on est déjà à la première chanson
+      console.log("Déjà à la première chanson");
+      setVoiceMessage("Vous êtes déjà à la première chanson");
+      setTimeout(() => setVoiceMessage(""), 3000);
     }
   };
 
@@ -241,6 +251,13 @@ const PlayerContextProvider = (props) => {
       await setTrack(songsData[track.id + 1]);
       await audioRef.current.play();
       setPlayStatus(true);
+      // Modification : Ajout d'un log pour confirmer le changement de chanson
+      console.log("Chanson suivante jouée :", songsData[track.id + 1].name);
+    } else {
+      // Modification : Ajout d'un message si on est déjà à la dernière chanson
+      console.log("Déjà à la dernière chanson");
+      setVoiceMessage("Vous êtes déjà à la dernière chanson");
+      setTimeout(() => setVoiceMessage(""), 3000);
     }
   };
 
@@ -332,7 +349,6 @@ const PlayerContextProvider = (props) => {
 };
 
 export default PlayerContextProvider;
-
 
 // const song = songsData.find((s) => s.desc.includes(tempo)) || songsData[0];
 // const songs = songsData.find((s) => s.genre === genre) || songsData[0];
