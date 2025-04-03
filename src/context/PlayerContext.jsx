@@ -247,6 +247,8 @@ useEffect(() => {
 export default PlayerContextProvider;
 
 
+const song = songsData.find((s) => s.desc.includes(tempo)) || songsData[0];
+const songs = songsData.find((s) => s.genre === genre) || songsData[0];
   // useEffect(() => {
   //   setTimeout(() => {
       
