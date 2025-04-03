@@ -58,7 +58,13 @@ const Player = () => {
         />
         <img className="w-4" src={assets.mini_player_icon} alt="" />
         <img className="w-4" src={assets.zoom_icon} alt="" />
+        
       </div>  
+      {voiceMessage && (
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded">
+          {voiceMessage}
+        </div>
+      )}
     </div>
   );
 };
