@@ -135,7 +135,7 @@ const PlayerContextProvider = (props) => {
       } catch (error) {
         console.error("Erreur lors du démarrage de la reconnaissance vocale :", error);
         setVoiceMessage("Erreur lors du démarrage de la reconnaissance");
-        setTimeout(() => setVoiceMessage(""), 3000);
+        setTimeout(() => setVoiceMessage(""), 5000);
       }
     }
   };
