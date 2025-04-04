@@ -189,6 +189,7 @@ export const songsData = [
     genre: "Rock",
     desc: "A classic rock anthem to get you pumped",
     duration: "2:32",
+    lyricsFile: "/lyrics/song2.lrc"
   },
   {
     id: 3,
