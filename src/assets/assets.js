@@ -265,7 +265,7 @@ export const songsData = [
     artist: "Bigty",
     genre: "Gospel",
     desc: "A soulful gospel song",
-    duration: "2:35",
+    duration: "04:48",
     lyricsFile: "/lyrics/song9.lrc",
   },
   {
