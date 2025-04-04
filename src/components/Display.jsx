@@ -4,6 +4,7 @@ import DisplayHome from './DisplayHome'
 import DisplayAlbum from './DisplayAlbum'
 import { albumsData } from '../assets/assets'
 import DisplaySearch from './DisplaySearch'
+import LyricsPage from "./components/LyricsPage";
 
 const Display = () => {
 
