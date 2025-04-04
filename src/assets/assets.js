@@ -222,6 +222,7 @@ export const songsData = [
     genre: "Gospel",
     desc: "A spiritual gospel melody",
     duration: "2:45",
+    lyricsFile: "/lyrics/song5.lrc"
   },
   {
     id: 6,
