@@ -167,6 +167,7 @@ export const songsData = [
     genre: "Pop",
     desc: "A cheerful pop track to lift your spirits",
     duration: "3:00",
+    lyricsFile: "/lyrics/song0.lrc",
   },
   {
     id: 1,
