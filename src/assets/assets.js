@@ -277,6 +277,7 @@ export const songsData = [
     genre: "Afrobeat",
     desc: "An energetic Afrobeat track",
     duration: "2:35",
+    lyricsFile: "/lyrics/song10.lrc",
   },
 ];
 
