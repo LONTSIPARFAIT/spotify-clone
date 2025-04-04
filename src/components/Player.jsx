@@ -45,7 +45,7 @@ const Player = () => {
           alt=""
         />
         <img className="w-4" src={assets.queue_icon} alt="" />
-        <img className="w-4" src={assets.speake_icon} alt="" />
+        <img className="w-4" src={assets.speaker_icon} alt="" />
         <img className="w-4" src={assets.volume_icon} alt="" />
         <input
           type="range"
