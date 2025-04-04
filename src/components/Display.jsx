@@ -4,7 +4,7 @@ import DisplayHome from './DisplayHome'
 import DisplayAlbum from './DisplayAlbum'
 import { albumsData } from '../assets/assets'
 import DisplaySearch from './DisplaySearch'
-import LyricsPage from "./components/LyricsPage";
+
 
 const Display = () => {
 
@@ -35,7 +35,7 @@ const Display = () => {
         <Route path="/album/:id" element={<DisplayAlbum />}/>
         <Route path="/search" element={<DisplaySearch />} />
         <Route path="/playlist" element={<DisplaySearch />} />
-        <Route path="/lyrics" element={<LyricsPage />} />
+        <Route path="/lyrics" element={<Ly />} />
       </Routes>
     </div>
   )
