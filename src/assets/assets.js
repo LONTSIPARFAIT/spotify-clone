@@ -233,6 +233,7 @@ export const songsData = [
     genre: "Afrobeat",
     desc: "A fun Afrobeat track",
     duration: "2:18",
+    lyricsFile: "/lyrics/song6.lrc",
   },
   {
     id: 7,
