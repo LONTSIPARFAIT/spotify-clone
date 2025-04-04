@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { assets } from "../assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
+import { Link } from "react-router-dom";
 
 const Player = () => {
 
@@ -13,6 +14,10 @@ const Player = () => {
         <div className="">
           <p> {track.name} </p>
           <p> {track.artist} </p>
+          {/* Ajout d'un lien vers la page des paroles */}
+          <Link to="/lyrics" className="text-sm text-gray-400 hover:text-gray-200">
+            Voir les paroles
+          </Link>
           {/* <p> {track.desc.slice(0, 12)} </p> */}
         </div>
       </div>
