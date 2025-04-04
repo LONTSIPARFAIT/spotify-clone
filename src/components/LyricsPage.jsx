@@ -23,7 +23,8 @@ const LyricsPage = () => {
   }, [track]);
 
   // Calculer le temps actuel en secondes
-  const currentTimeInSeconds = parseInt(time.currentTime.minute) * 60 + parseInt(time.currentTime.second);
+  const currentTimeInSeconds =
+    parseInt(time.currentTime.minute) * 60 + parseInt(time.currentTime.second);
 
   // Faire défiler automatiquement vers la ligne active
   useEffect(() => {
@@ -45,7 +46,9 @@ const LyricsPage = () => {
 
       {/* Titre de la chanson */}
       <h1 className="text-4xl font-bold mb-2 font-poppins">{track.name}</h1>
-      <h2 className="text-xl mb-6 font-poppins text-gray-400">Par {track.artist}</h2>
+      <h2 className="text-xl mb-6 font-poppins text-gray-400">
+        Par {track.artist}
+      </h2>
 
       {/* Affichage des paroles */}
       <div
@@ -56,12 +59,15 @@ const LyricsPage = () => {
           lyrics.map((line, index) => {
             const isActive =
               currentTimeInSeconds >= line.time &&
-              (index === lyrics.length - 1 || currentTimeInSeconds < lyrics[index + 1].time);
+              (index === lyrics.length - 1 ||
+                currentTimeInSeconds < lyrics[index + 1].time);
             return (
               <p
                 key={index}
                 className={`lyric-line text-lg mb-4 font-poppins transition-all duration-500 ${
-                  isActive ? "active text-green-400 font-bold scale-105" : "text-gray-400"
+                  isActive
+                    ? "active text-green-400 font-bold scale-105"
+                    : "text-gray-400"
                 }`}
               >
                 {line.text}
@@ -69,7 +75,9 @@ const LyricsPage = () => {
             );
           })
         ) : (
-          <p className="text-lg font-poppins text-gray-400">Paroles non disponibles</p>
+          <p className="text-lg font-poppins text-gray-400">
+            Paroles non disponibles
+          </p>
         )}
       </div>
     </div>
