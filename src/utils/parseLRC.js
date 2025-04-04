@@ -1,6 +1,6 @@
 // Fonction pour convertir un timestamp [mm:ss.xx] en secondes
 const parseTime = (timeStr) => {
-    const [minutes, seconds] = timeStr.replace(/[[\]]/g, "").split(":");
+    const [minutes, seconds] = timeStr.replace(/[\[\]]/g, "").split(":");
     return parseInt(minutes) * 60 + parseFloat(seconds);
   };
   
