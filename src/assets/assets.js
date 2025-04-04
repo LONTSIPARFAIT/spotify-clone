@@ -244,6 +244,7 @@ export const songsData = [
     genre: "Gospel",
     desc: "A gospel song with a message",
     duration: "2:35",
+    lyricsFile: "/lyrics/song7.lrc",
   },
   {
     id: 8,
@@ -254,6 +255,7 @@ export const songsData = [
     genre: "Gospel",
     desc: "A gospel track for inspiration",
     duration: "2:35",
+    lyricsFile: "/lyrics/song8.lrc",
   },
   {
     id: 9,
