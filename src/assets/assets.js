@@ -211,6 +211,7 @@ export const songsData = [
     genre: "Afrobeat",
     desc: "A vibrant Afrobeat song",
     duration: "3:10",
+    lyricsFile: "/lyrics/song4.lrc",
   },
   {
     id: 5,
