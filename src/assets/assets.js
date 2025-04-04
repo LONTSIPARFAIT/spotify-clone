@@ -200,6 +200,7 @@ export const songsData = [
     genre: "Gospel",
     desc: "An uplifting gospel track",
     duration: "2:50",
+    lyricsFile: "/lyrics/song3.lrc",
   },
   {
     id: 4,
