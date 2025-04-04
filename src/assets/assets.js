@@ -178,6 +178,7 @@ export const songsData = [
     genre: "Indie",
     desc: "A mellow indie song for a relaxing evening",
     duration: "2:20",
+    lyricsFile: "/lyrics/song1.lrc",
   },
   {
     id: 2,
