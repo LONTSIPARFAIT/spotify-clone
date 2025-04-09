@@ -85,4 +85,4 @@ Gestion des états : Context API
 Backend (en développement) : Node.js, Express
 Base de données (en développement) : MongoDB🚀
 
-## Technologies utilisées 🛠️
+## Auteur ✍️️
