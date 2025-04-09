@@ -52,3 +52,5 @@ bash git clone https://github.com/votre-utilisateur/spotify-clone.git
 cd spotify-clone
 
 Installez les dépendances :
+bash npm install
+
