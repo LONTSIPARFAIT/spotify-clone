@@ -46,7 +46,7 @@ Bienvenue dans **Spotify Clone**, une application web développée avec **React*
 
 Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour chaque ligne, permettant une synchronisation précise avec la musique. Voici un extrait d'exemple :
 
-```plaintext
+```bash
 [01:21.00] Tu ne pourras jamais être libre
 [01:23.00] Tant que tu resteras enchaîné
 [01:24.00] Oh mon âme
@@ -56,6 +56,7 @@ Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour c
 
 
 Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynamiquement par l'application.
+ ```
 
 ### 2. **Installez les dépendances :** 
 ```bash
