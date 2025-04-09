@@ -88,5 +88,7 @@ Base de données (en développement) : MongoDB🚀
 ## Auteur ✍️️
 Développé par LONTSI PARFAIT.
 
-## Auteur ✍️️
+## Licence 📄
 Développé par LONTSI PARFAIT.
+
+Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus d'informations.
