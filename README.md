@@ -89,7 +89,7 @@ Base de données (en développement) : MongoDB🚀
 Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
 ### 1. **Forkez le projet.** 🛠️
 
-### 2. **Installez les dépendances :** 
+### 2. **Créez une branche pour votre fonctionnalité** 
 ```bash
     npm install
  ```
