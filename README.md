@@ -91,10 +91,10 @@ Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
 
 ### 2. **Créez une branche pour votre fonctionnalité** 
 ```bash
-    npm install
+    git checkout -b feature/ma-fonctionnalite
  ```
 
-### 3. **Lancez le serveur de développement :** 
+### 3. **Commitez vos modifications** 
 ```bash
     npm run dev
  ```
