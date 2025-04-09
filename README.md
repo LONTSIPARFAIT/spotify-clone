@@ -1,41 +1,52 @@
 # Spotify Clone 🎵
 
-Ce projet est une application web de type clone de Spotify, développée avec **React** et **Vite**. Il permet de naviguer dans des albums, de lire des chansons, d'afficher les paroles synchronisées et d'utiliser des commandes vocales pour contrôler la lecture.
+Bienvenue dans **Spotify Clone**, une application web développée avec **React** et **Vite**. Ce projet offre une expérience immersive pour écouter de la musique, naviguer dans des albums et afficher des paroles synchronisées.
+
+---
 
 ## Fonctionnalités 🚀
 
 ### 1. **Lecture audio**
-- Permet de lire des chansons avec des contrôles intuitifs : lecture/pause, précédent/suivant, et réglage du volume.
-- Interface utilisateur fluide pour une expérience agréable.
+   - Contrôles intuitifs : lecture/pause, précédent/suivant, et réglage du volume.
+   - Interface fluide pour une expérience utilisateur agréable.
 
 ### 2. **Affichage des paroles synchronisées**
-- Les paroles des chansons sont affichées en temps réel, synchronisées avec la lecture audio.
-- Format des paroles : fichiers `.lrc` (comme dans le fichier `song9.lrc`), contenant des timestamps pour chaque ligne de texte.
-- Exemple :
-  ```plaintext
-  [01:21.00] Tu ne pourras jamais être libre
-  [01:23.00] Tant que tu resteras enchaîné
+   - Paroles affichées en temps réel, synchronisées avec la lecture audio.
+   - Format des paroles : fichiers `.lrc` contenant des timestamps pour chaque ligne.
+   - Exemple :
+     ```plaintext
+     [01:21.00] Tu ne pourras jamais être libre
+     [01:23.00] Tant que tu resteras enchaîné
+     ```
 
-  3. Navigation intuitive
-Accédez facilement à différentes sections de l'application : page d'accueil, albums, recherche, et affichage des paroles.
-Design responsive pour une utilisation sur mobile, tablette et ordinateur.
-4. Recherche avancée
-Recherchez des chansons, artistes ou genres directement depuis l'application.
-Suggestions dynamiques pour une expérience utilisateur améliorée.
-5. Commandes vocales
-Contrôlez la lecture avec des commandes vocales simples, comme :
-"Joue la chanson suivante"
-"Mets en pause"
-"Reprends la lecture"
-6. Gestion des playlists
-Créez, modifiez et supprimez vos playlists personnalisées.
-Ajoutez ou retirez des chansons à la volée.
-7. Mode hors ligne (en développement)
-Téléchargez vos chansons préférées pour les écouter sans connexion Internet.
+### 3. **Navigation intuitive**
+   - Accès facile aux sections : page d'accueil, albums, recherche, et affichage des paroles.
+   - Design responsive pour une utilisation sur mobile, tablette et ordinateur.
 
-Aperçu des paroles synchronisées 🎤
-Les fichiers .lrc utilisés pour les paroles contiennent des timestamps pour chaque ligne, permettant une synchronisation précise avec la musique. Voici un extrait d'exemple :
+### 4. **Recherche avancée**
+   - Recherchez des chansons, artistes ou genres directement depuis l'application.
+   - Suggestions dynamiques pour une expérience utilisateur améliorée.
 
+### 5. **Commandes vocales**
+   - Contrôlez la lecture avec des commandes vocales simples, comme :
+     - "Joue la chanson suivante"
+     - "Mets en pause"
+     - "Reprends la lecture"
+
+### 6. **Gestion des playlists**
+   - Créez, modifiez et supprimez vos playlists personnalisées.
+   - Ajoutez ou retirez des chansons à la volée.
+
+### 7. **Mode hors ligne (en développement)**
+   - Téléchargez vos chansons préférées pour les écouter sans connexion Internet.
+
+---
+
+## Aperçu des paroles synchronisées 🎤
+
+Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour chaque ligne, permettant une synchronisation précise avec la musique. Voici un extrait d'exemple :
+
+```plaintext
 [01:21.00] Tu ne pourras jamais être libre
 [01:23.00] Tant que tu resteras enchaîné
 [01:24.00] Oh mon âme
