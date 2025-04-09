@@ -53,7 +53,7 @@ Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour c
 [01:28.00] Ne te trouble point
 [01:30.00] Refrain :
 [01:34.00] Tout va bien
-```
+
 
 Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynamiquement par l'application.
 
@@ -84,6 +84,11 @@ Routing : React Router
 Gestion des états : Context API
 Backend (en développement) : Node.js, Express
 Base de données (en développement) : MongoDB🚀
+
+## Contribution 🤝
+Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
+
+
 
 ## Auteur ✍️️
 Développé par LONTSI PARFAIT.
