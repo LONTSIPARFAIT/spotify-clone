@@ -77,4 +77,12 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 ### 4. **Ouvrez votre navigateur** 
    - Accédez à l'adresse http://localhost:5173.
 
-## Technologies utilisées 🛠️🚀
+## Technologies utilisées 🛠️
+Frontend : React, Vite
+Styling : Tailwind CSS
+Routing : React Router
+Gestion des états : Context API
+Backend (en développement) : Node.js, Express
+Base de données (en développement) : MongoDB🚀
+
+## Technologies utilisées 🛠️
