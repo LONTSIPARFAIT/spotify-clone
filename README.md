@@ -32,3 +32,13 @@ Créez, modifiez et supprimez vos playlists personnalisées.
 Ajoutez ou retirez des chansons à la volée.
 7. Mode hors ligne (en développement)
 Téléchargez vos chansons préférées pour les écouter sans connexion Internet.
+
+Aperçu des paroles synchronisées 🎤
+Les fichiers .lrc utilisés pour les paroles contiennent des timestamps pour chaque ligne, permettant une synchronisation précise avec la musique. Voici un extrait d'exemple :
+
+[01:21.00] Tu ne pourras jamais être libre
+[01:23.00] Tant que tu resteras enchaîné
+[01:24.00] Oh mon âme
+[01:28.00] Ne te trouble point
+[01:30.00] Refrain :
+[01:34.00] Tout va bien
