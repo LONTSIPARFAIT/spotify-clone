@@ -15,3 +15,20 @@ Ce projet est une application web de type clone de Spotify, développée avec **
   ```plaintext
   [01:21.00] Tu ne pourras jamais être libre
   [01:23.00] Tant que tu resteras enchaîné
+
+  3. Navigation intuitive
+Accédez facilement à différentes sections de l'application : page d'accueil, albums, recherche, et affichage des paroles.
+Design responsive pour une utilisation sur mobile, tablette et ordinateur.
+4. Recherche avancée
+Recherchez des chansons, artistes ou genres directement depuis l'application.
+Suggestions dynamiques pour une expérience utilisateur améliorée.
+5. Commandes vocales
+Contrôlez la lecture avec des commandes vocales simples, comme :
+"Joue la chanson suivante"
+"Mets en pause"
+"Reprends la lecture"
+6. Gestion des playlists
+Créez, modifiez et supprimez vos playlists personnalisées.
+Ajoutez ou retirez des chansons à la volée.
+7. Mode hors ligne (en développement)
+Téléchargez vos chansons préférées pour les écouter sans connexion Internet.
