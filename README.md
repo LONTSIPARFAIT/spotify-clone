@@ -86,12 +86,6 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 - **Gestion des états** : Node.js, Express
 - **Backend (en développement)** : Context API
 - **Base de données (en développement)** : MongoDB
-Frontend : React, Vite
-Styling : Tailwind CSS
-Routing : React Router
-Gestion des états : Context API
-Backend (en développement) : Node.js, Express
-Base de données (en développement) : MongoDB🚀
 
 ## Contribution 🤝
 Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
