@@ -87,6 +87,24 @@ Base de données (en développement) : MongoDB🚀
 
 ## Contribution 🤝
 Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
+### 1. **Clonez ce dépôt :** 🛠️
+```bash
+    git clone https://github.com/votre-utilisateur/spotify-clone.git
+    cd spotify-clone
+ ```
+
+### 2. **Installez les dépendances :** 
+```bash
+    npm install
+ ```
+
+### 3. **Lancez le serveur de développement :** 
+```bash
+    npm run dev
+ ```
+
+### 4. **Ouvrez votre navigateur** 
+   - Accédez à l'adresse http://localhost:5173.
 
 
 
