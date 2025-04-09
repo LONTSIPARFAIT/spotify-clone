@@ -76,5 +76,5 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 
 ### 4. **Ouvrez votre navigateur** 
 ```bash
-    npm run dev
+    Accédez à l'adresse http://localhost:5173.
  ```
