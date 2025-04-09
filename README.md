@@ -69,5 +69,6 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
     npm install
  ```
 
+### 3. **Installez les dépendances :** 
 Lancez le serveur de développement :
 npm run dev
