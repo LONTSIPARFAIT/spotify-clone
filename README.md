@@ -75,6 +75,4 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
  ```
 
 ### 4. **Ouvrez votre navigateur** 
-```bash
-    Accédez à l'adresse http://localhost:5173.
- ```
+   - Accédez à l'adresse http://localhost:5173.
