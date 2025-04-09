@@ -64,6 +64,7 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
     cd spotify-clone
  ```
 
+### 1. **Clonez ce dépôt :** 
 Installez les dépendances :
 bash npm install
 
