@@ -73,3 +73,5 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 ```bash
     npm run dev
  ```
+
+### 4. **Lancez le serveur de développement :** 
