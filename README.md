@@ -55,3 +55,4 @@ Installez les dépendances :
 bash npm install
 
 Lancez le serveur de développement :
+npm run dev
