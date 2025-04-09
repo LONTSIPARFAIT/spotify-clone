@@ -54,3 +54,4 @@ cd spotify-clone
 Installez les dépendances :
 bash npm install
 
+Lancez le serveur de développement :
