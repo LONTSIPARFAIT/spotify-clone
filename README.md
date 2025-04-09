@@ -78,6 +78,11 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
    - Accédez à l'adresse http://localhost:5173.
 
 ## Technologies utilisées 🛠️
+
+- **Backend** : Laravel 10
+- **Frontend** : Blade, Tailwind CSS, Alpine.js
+- **Base de données** : MySQL
+- **Build tools** : Vite
 Frontend : React, Vite
 Styling : Tailwind CSS
 Routing : React Router
