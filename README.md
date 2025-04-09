@@ -79,13 +79,13 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 
 ## Technologies utilisées 🛠️
 
-- **Frontend** : React, Vite
+- **Frontend** : React
 - **Styling** : Tailwind CSS
+- **Build tools** : Vite
 - **Routing** : React Router
 - **Gestion des états** : Node.js, Express
 - **Backend (en développement)** : Context API
 - **Base de données (en développement)** : MongoDB
-- **Build tools** : Vite
 Frontend : React, Vite
 Styling : Tailwind CSS
 Routing : React Router
