@@ -53,6 +53,7 @@ Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour c
 [01:28.00] Ne te trouble point
 [01:30.00] Refrain :
 [01:34.00] Tout va bien
+```
 
 Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynamiquement par l'application.
 
