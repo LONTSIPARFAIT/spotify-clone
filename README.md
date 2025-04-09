@@ -86,3 +86,4 @@ Backend (en développement) : Node.js, Express
 Base de données (en développement) : MongoDB🚀
 
 ## Auteur ✍️️
+Développé par LONTSI PARFAIT.
