@@ -66,8 +66,7 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 
 ### 2. **Installez les dépendances :** 
 ```bash
-    git clone https://github.com/votre-utilisateur/spotify-clone.git
-    cd spotify-clone
+    npm install
  ```
 
 Lancez le serveur de développement :
