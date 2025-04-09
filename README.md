@@ -57,13 +57,6 @@ Les fichiers `.lrc` utilisés pour les paroles contiennent des timestamps pour c
 
 Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynamiquement par l'application.
 
-## Installation et exécution 🚀
-### 1. **Clonez ce dépôt :** 🛠️
-```bash
-    git clone https://github.com/votre-utilisateur/spotify-clone.git
-    cd spotify-clone
- ```
-
 ### 2. **Installez les dépendances :** 
 ```bash
     npm install
