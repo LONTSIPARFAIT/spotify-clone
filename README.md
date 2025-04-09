@@ -104,7 +104,8 @@ Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
     git push origin feature/ma-fonctionnalite
  ```
 
-
+### 5. **Ouvrez une pull request** 
+   - Ouvrez une pull request sur GitHub pour que votre contribution soit examinée et intégrée au projet.
 
 ## Auteur ✍️️
 Développé par LONTSI PARFAIT.
