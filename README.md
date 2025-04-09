@@ -96,11 +96,13 @@ Les contributions sont les bienvenues ! Suivez ces étapes pour contribuer :
 
 ### 3. **Commitez vos modifications** 
 ```bash
-    npm run dev
+    git commit -m 'Ajout de ma fonctionnalité'
  ```
 
-### 4. **Ouvrez votre navigateur** 
-   - Accédez à l'adresse http://localhost:5173.
+### 4. **Poussez votre branch** 
+```bash
+    git push origin feature/ma-fonctionnalite
+ ```
 
 
 
