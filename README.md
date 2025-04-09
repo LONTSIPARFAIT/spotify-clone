@@ -79,7 +79,7 @@ Ces fichiers sont stockés dans le dossier public/lyrics/ et sont chargés dynam
 
 ## Technologies utilisées 🛠️
 
-- **Frontend** : React, Vite, Tailwind CSS
+- **Frontend** : React, Vite
 - **Backend** : Laravel 10
 - **Base de données** : MySQL
 - **Build tools** : Vite
