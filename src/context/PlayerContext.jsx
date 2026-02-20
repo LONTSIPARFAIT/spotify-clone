@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState, useCallback } from "react";
 import { songsData } from "../assets/assets";
 
 // Création du contexte pour partager les états et fonctions entre les composants
@@ -12,48 +12,77 @@ const PlayerContextProvider = (props) => {
   const seekBar = useRef(); // Référence pour la barre de progression elle-même
 
   // États pour gérer le lecteur
-  const [track, setTrack] = useState(songsData[0]); // Chanson actuellement sélectionnée (par défaut, la première chanson)
-  const [playStatus, setPlayStatus] = useState(false); // État de lecture (true = en lecture, false = en pause)
-  const [volume, setVolume] = useState(0.5); // Volume initial à 50%
-  const [speed, setSpeed] = useState(0); // Vitesse de l'utilisateur (pour la géolocalisation)
-  const [time, setTime] = useState({
-    currentTime: { second: "00", minute: "0" }, // Temps actuel de la chanson
-    totalTime: { second: "00", minute: "0" }, // Durée totale de la chanson
+  const [track, setTrack] = useState(songsData[0]); // Chanson actuellement sélectionnée
+  const [playStatus, setPlayStatus] = useState(false); // État de lecture
+  const [volume, setVolume] = useState(() => {
+    // Récupérer le volume sauvegardé
+    const savedVolume = localStorage.getItem('playerVolume');
+    return savedVolume ? parseFloat(savedVolume) : 0.5;
   });
-  const [songDurations, setSongDurations] = useState({}); // Durées des chansons (calculées dynamiquement)
-  const [isListening, setIsListening] = useState(false); // État pour indiquer si la reconnaissance vocale est active
-  const [voiceMessage, setVoiceMessage] = useState(""); // Message à afficher pour le feedback vocal
-  const recognition = useRef(null); // Référence pour l'instance de SpeechRecognition
+  const [speed, setSpeed] = useState(0); // Vitesse de l'utilisateur
+  const [time, setTime] = useState({
+    currentTime: { second: "00", minute: "0", totalSeconds: 0 },
+    totalTime: { second: "00", minute: "0", totalSeconds: 0 },
+  });
+  const [songDurations, setSongDurations] = useState({});
+  const [isListening, setIsListening] = useState(false);
+  const [voiceMessage, setVoiceMessage] = useState("");
+  const [repeatMode, setRepeatMode] = useState('none'); // 'none', 'all', 'one'
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [queue, setQueue] = useState([]); // File d'attente
+  const [history, setHistory] = useState([]); // Historique des chansons jouées
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  
+  const recognition = useRef(null);
+  const animationFrameRef = useRef(null);
 
-  // Fonction pour formater le temps (ex. 5 secondes -> "05")
-  const formatTime = (seconds) => String(Math.floor(seconds)).padStart(2, "0");
+  // Fonction pour formater le temps
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return {
+      minute: mins.toString(),
+      second: secs.toString().padStart(2, "0"),
+      totalSeconds: seconds
+    };
+  };
+
+  // Sauvegarder le volume dans localStorage
+  useEffect(() => {
+    localStorage.setItem('playerVolume', volume.toString());
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   // Initialisation de la reconnaissance vocale
   useEffect(() => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
       recognition.current = new SpeechRecognition();
-      recognition.current.continuous = false; // Ne pas écouter en continu
-      recognition.current.interimResults = false; // Ne pas retourner de résultats intermédiaires
-      recognition.current.lang = "fr-FR"; // Langue française
+      recognition.current.continuous = false;
+      recognition.current.interimResults = false;
+      recognition.current.lang = "fr-FR";
 
       recognition.current.onstart = () => {
         console.log("Reconnaissance vocale démarrée");
         setIsListening(true);
-        setVoiceMessage("Écoute en cours...");
+        setVoiceMessage("🎤 Écoute en cours...");
+        setTimeout(() => setVoiceMessage(""), 2000);
       };
 
       recognition.current.onresult = (event) => {
         const transcript = event.results[0][0].transcript.toLowerCase().trim();
         console.log("Commande vocale détectée :", transcript);
-        setVoiceMessage(`Commande détectée : ${transcript}`);
-        setTimeout(() => setVoiceMessage(""), 5000);
+        setVoiceMessage(`🎤 "${transcript}"`);
+        setTimeout(() => setVoiceMessage(""), 3000);
         handleVoiceCommand(transcript);
       };
 
       recognition.current.onerror = (event) => {
         console.error("Erreur de reconnaissance vocale :", event.error);
-        setVoiceMessage(`Erreur : ${event.error}`);
+        setVoiceMessage(`❌ Erreur : ${event.error}`);
         setTimeout(() => setVoiceMessage(""), 3000);
         setIsListening(false);
       };
@@ -61,84 +90,103 @@ const PlayerContextProvider = (props) => {
       recognition.current.onend = () => {
         console.log("Reconnaissance vocale terminée");
         setIsListening(false);
-        if (voiceMessage === "Écoute en cours...") {
-          setVoiceMessage("");
-        }
       };
     } else {
       console.warn("SpeechRecognition n'est pas pris en charge par ce navigateur.");
     }
+
+    return () => {
+      if (recognition.current) {
+        recognition.current.abort();
+      }
+    };
   }, []);
 
-  // Fonction pour gérer les commandes vocales
+  // Fonction pour gérer les commandes vocales améliorée
   const handleVoiceCommand = (command) => {
     console.log("Interprétation de la commande :", command);
 
-    // Commande pour passer à la chanson suivante
-    if (command.includes("suivante") || command.includes("next") || command.includes("suivant")) {
-      console.log("Passage à la chanson suivante");
-      // Modification : Ajout d'un log pour vérifier la chanson actuelle avant le changement
-      console.log("Chanson actuelle avant changement :", track.name);
-      next();
-      // Modification : Ajout d'un log pour vérifier la nouvelle chanson après le changement
-      // Note : Puisque setTrack est asynchrone, on ne peut pas loguer directement ici, mais on peut le faire dans next()
-      return; // Sortir de la fonction après avoir traité la commande
-    }
-
-    // Commande pour passer à la chanson précédente
-    if (command.includes("précédente") || command.includes("previous") || command.includes("précédent")) {
-      console.log("Passage à la chanson précédente");
-      console.log("Chanson actuelle avant changement :", track.name);
-      previous();
-      return; // Sortir de la fonction après avoir traité la commande
-    }
-
-    // Commande pour jouer une chanson par nom, description ou genre
-    if (command.includes("joue") || command.includes("play") || command.includes("jouer")) {
-      console.log("Commande 'joue' détectée");
-      let query = command
-        .replace("joue", "")
-        .replace("play", "")
-        .replace("jouer", "")
-        .replace("du ", "") // Supprime "du" pour faciliter la recherche (ex. "joue du gospel" -> "gospel")
-        .trim();
-      console.log("Recherche de la requête :", query);
-      if (query) {
-        playByQuery(query);
-      } else {
-        console.log("Requête vide après nettoyage");
-        setVoiceMessage("Veuillez préciser une chanson ou un genre");
-        setTimeout(() => setVoiceMessage(""), 3000);
-      }
-      return; // Sortir de la fonction après avoir traité la commande
-    }
-
-    // Commande pour mettre en pause
+    // Commande pour jouer/pause
     if (command.includes("pause") || command.includes("stop")) {
-      console.log("Commande 'pause' détectée");
       pause();
-      return; // Sortir de la fonction après avoir traité la commande
+      setVoiceMessage("⏸️ Pause");
+      setTimeout(() => setVoiceMessage(""), 2000);
+      return;
     }
 
-    // Commande pour reprendre la lecture
-    if (command.includes("reprends") || command.includes("resume") || command.includes("continue")) {
-      console.log("Commande 'reprends' détectée");
-      play();
-      return; // Sortir de la fonction après avoir traité la commande
+    if (command.includes("play") || command.includes("joue") || command.includes("reprends")) {
+      if (command.includes("joue") || command.includes("play")) {
+        let query = command
+          .replace("joue", "")
+          .replace("play", "")
+          .replace("jouer", "")
+          .replace("du ", "")
+          .replace("la ", "")
+          .replace("le ", "")
+          .trim();
+        
+        if (query) {
+          playByQuery(query);
+        } else {
+          play();
+          setVoiceMessage("▶️ Lecture reprise");
+          setTimeout(() => setVoiceMessage(""), 2000);
+        }
+      } else {
+        play();
+        setVoiceMessage("▶️ Lecture reprise");
+        setTimeout(() => setVoiceMessage(""), 2000);
+      }
+      return;
     }
 
-    // Gestion des cas où la commande n'est pas reconnue
-    console.log("Commande non reconnue :", command);
-    setVoiceMessage("Commande non reconnue");
-    setTimeout(() => setVoiceMessage(""), 3000);
+    // Commandes de navigation
+    if (command.includes("suivante") || command.includes("next")) {
+      next();
+      setVoiceMessage("⏭️ Chanson suivante");
+      setTimeout(() => setVoiceMessage(""), 2000);
+      return;
+    }
+
+    if (command.includes("précédente") || command.includes("previous")) {
+      previous();
+      setVoiceMessage("⏮️ Chanson précédente");
+      setTimeout(() => setVoiceMessage(""), 2000);
+      return;
+    }
+
+    // Commande pour le volume
+    if (command.includes("volume") || command.includes("volumes")) {
+      const match = command.match(/(\d+)/);
+      if (match) {
+        const newVolume = Math.min(100, parseInt(match[0])) / 100;
+        setVolume(newVolume);
+        setVoiceMessage(`🔊 Volume à ${Math.round(newVolume * 100)}%`);
+      } else if (command.includes("monte") || command.includes("augmente")) {
+        setVolume(prev => Math.min(1, prev + 0.1));
+        setVoiceMessage(`🔊 Volume à ${Math.round((volume + 0.1) * 100)}%`);
+      } else if (command.includes("baisse") || command.includes("diminue")) {
+        setVolume(prev => Math.max(0, prev - 0.1));
+        setVoiceMessage(`🔊 Volume à ${Math.round((volume - 0.1) * 100)}%`);
+      }
+      setTimeout(() => setVoiceMessage(""), 2000);
+      return;
+    }
+
+    // Commande pour les paroles
+    if (command.includes("paroles") || command.includes("lyrics")) {
+      window.location.href = '/lyrics';
+      return;
+    }
+
+    setVoiceMessage("❓ Commande non reconnue");
+    setTimeout(() => setVoiceMessage(""), 2000);
   };
 
-  // Fonction pour activer/désactiver la reconnaissance vocale
-  const toggleVoiceRecognition = () => {
+  const toggleVoiceRecognition = useCallback(() => {
     if (!recognition.current) {
-      console.warn("Reconnaissance vocale non prise en charge");
-      setVoiceMessage("Reconnaissance vocale non prise en charge");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      setVoiceMessage("🎤 Non supporté");
+      setTimeout(() => setVoiceMessage(""), 2000);
       return;
     }
 
@@ -148,175 +196,253 @@ const PlayerContextProvider = (props) => {
       try {
         recognition.current.start();
       } catch (error) {
-        console.error("Erreur lors du démarrage de la reconnaissance vocale :", error);
-        setVoiceMessage("Erreur lors du démarrage de la reconnaissance");
-        setTimeout(() => setVoiceMessage(""), 3000);
+        console.error("Erreur de démarrage:", error);
       }
     }
-  };
+  }, [isListening]);
 
-  // Charge les durées des chansons au démarrage
+  // Charge les durées des chansons de façon optimisée
   useEffect(() => {
     const loadDurations = async () => {
       const durations = {};
-      for (const song of songsData) {
-        const audio = new Audio(song.file);
-        await new Promise((resolve) => {
+      const promises = songsData.map((song) => {
+        return new Promise((resolve) => {
+          const audio = new Audio(song.file);
           audio.onloadedmetadata = () => {
             durations[song.id] = {
-              minute: formatTime(audio.duration / 60),
-              second: formatTime(audio.duration % 60),
+              minute: Math.floor(audio.duration / 60).toString(),
+              second: Math.floor(audio.duration % 60).toString().padStart(2, "0"),
+              totalSeconds: audio.duration
             };
             resolve();
           };
+          audio.onerror = () => resolve(); // Ignorer les erreurs
         });
-      }
+      });
+      await Promise.all(promises);
       setSongDurations(durations);
     };
     loadDurations();
   }, []);
 
-  // Fonction pour démarrer la lecture
-  const play = () => {
-    audioRef.current.play();
-    setPlayStatus(true);
-  };
-
-  // Fonction pour mettre en pause
-  const pause = () => {
-    audioRef.current.pause();
-    setPlayStatus(false);
-  };
-
-  // Fonction pour jouer une chanson par son ID
-  const playWithId = async (id) => {
-    if (!songsData[id]) return;
-    await setTrack(songsData[id]);
+  // Fonctions de lecture améliorées
+  const play = useCallback(async () => {
     try {
-      await audioRef.current.play();
+      await audioRef.current?.play();
       setPlayStatus(true);
+      setError(null);
     } catch (error) {
-      console.error("Erreur lors de la lecture :", error);
+      console.error("Erreur de lecture:", error);
+      setError("Impossible de lire la chanson");
     }
-  };
+  }, []);
 
-  // Fonction pour jouer une chanson par une requête (ex. "gospel", "C'est JESUS KS")
-  const playByQuery = async (query) => {
-    console.log("Recherche dans songsData avec la requête :", query);
+  const pause = useCallback(() => {
+    audioRef.current?.pause();
+    setPlayStatus(false);
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    if (playStatus) {
+      pause();
+    } else {
+      play();
+    }
+  }, [playStatus, play, pause]);
+
+  const playWithId = useCallback(async (id) => {
+    if (!songsData[id]) {
+      setError("Chanson introuvable");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      // Ajouter à l'historique
+      setHistory(prev => [track, ...prev].slice(0, 50));
+      
+      await setTrack(songsData[id]);
+      
+      // Petite pause pour permettre au src de se mettre à jour
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
+      await audioRef.current?.play();
+      setPlayStatus(true);
+      setError(null);
+      
+      // Ajouter à la file d'attente si nécessaire
+      if (isShuffling) {
+        // Logique de shuffle
+      }
+    } catch (error) {
+      console.error("Erreur lors de la lecture:", error);
+      setError("Erreur de lecture");
+    } finally {
+      setIsLoading(false);
+    }
+  }, [track, isShuffling]);
+
+  const playByQuery = useCallback(async (query) => {
+    console.log("Recherche:", query);
+    
     const match = songsData.find((song) => {
-      const nameMatch = song.name.toLowerCase().includes(query.toLowerCase());
-      const descMatch = song.desc.toLowerCase().includes(query.toLowerCase());
-      const genreMatch = song.genre && song.genre.toLowerCase().includes(query.toLowerCase());
-      console.log(`Chanson : ${song.name}, nameMatch: ${nameMatch}, descMatch: ${descMatch}, genreMatch: ${genreMatch}`);
-      return nameMatch || descMatch || genreMatch;
+      const searchTerms = query.toLowerCase().split(' ');
+      const songText = `${song.name} ${song.artist} ${song.genre} ${song.desc}`.toLowerCase();
+      return searchTerms.some(term => songText.includes(term));
     });
 
     if (match) {
-      console.log("Chanson trouvée :", match.name);
-      await setTrack(match);
-      try {
-        await audioRef.current.play();
-        setPlayStatus(true);
-      } catch (error) {
-        console.error("Erreur lors de la lecture :", error);
-        setVoiceMessage("Erreur lors de la lecture");
-        setTimeout(() => setVoiceMessage(""), 3000);
-      }
+      setVoiceMessage(`✅ ${match.name}`);
+      setTimeout(() => setVoiceMessage(""), 2000);
+      await playWithId(match.id);
     } else {
-      console.log("Aucune chanson trouvée pour la requête :", query);
-      setVoiceMessage("Aucune chanson trouvée");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      setVoiceMessage("❌ Chanson non trouvée");
+      setTimeout(() => setVoiceMessage(""), 2000);
     }
-  };
+  }, [playWithId]);
 
-  // Fonction pour passer à la chanson précédente
-  const previous = async () => {
+  const previous = useCallback(async () => {
     if (track.id > 0) {
+      setIsLoading(true);
       await setTrack(songsData[track.id - 1]);
-      await audioRef.current.play();
+      await new Promise(resolve => setTimeout(resolve, 50));
+      await audioRef.current?.play();
       setPlayStatus(true);
-      // Modification : Ajout d'un log pour confirmer le changement de chanson
-      console.log("Chanson précédente jouée :", songsData[track.id - 1].name);
+      setIsLoading(false);
     } else {
-      // Modification : Ajout d'un message si on est déjà à la première chanson
-      console.log("Déjà à la première chanson");
-      setVoiceMessage("Vous êtes déjà à la première chanson");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      setVoiceMessage("📌 Première chanson");
+      setTimeout(() => setVoiceMessage(""), 2000);
     }
-  };
+  }, [track]);
 
-  // Fonction pour passer à la chanson suivante
-  const next = async () => {
+  const next = useCallback(async () => {
     if (track.id < songsData.length - 1) {
+      setIsLoading(true);
       await setTrack(songsData[track.id + 1]);
-      await audioRef.current.play();
+      await new Promise(resolve => setTimeout(resolve, 50));
+      await audioRef.current?.play();
       setPlayStatus(true);
-      // Modification : Ajout d'un log pour confirmer le changement de chanson
-      console.log("Chanson suivante jouée :", songsData[track.id + 1].name);
+      setIsLoading(false);
     } else {
-      // Modification : Ajout d'un message si on est déjà à la dernière chanson
-      console.log("Déjà à la dernière chanson");
-      setVoiceMessage("Vous êtes déjà à la dernière chanson");
-      setTimeout(() => setVoiceMessage(""), 3000);
+      if (repeatMode === 'all') {
+        await setTrack(songsData[0]);
+        await audioRef.current?.play();
+        setPlayStatus(true);
+      } else {
+        setVoiceMessage("📌 Dernière chanson");
+        setTimeout(() => setVoiceMessage(""), 2000);
+      }
     }
-  };
+  }, [track, repeatMode]);
 
-  // Fonction pour avancer/reculer dans la chanson en cliquant sur la barre de progression
-  const seekSong = async (e) => {
-    audioRef.current.currentTime = (e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration;
-    console.log(e);
-  };
+  const seekSong = useCallback((e) => {
+    if (!audioRef.current || !seekBg.current) return;
+    
+    const rect = seekBg.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+    const percentage = Math.max(0, Math.min(1, x / width));
+    
+    audioRef.current.currentTime = percentage * audioRef.current.duration;
+  }, []);
 
-  // Gestion de la mise à jour du temps de lecture
+  // Gestion de la fin de la chanson
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    audio.volume = volume;
-
-    const handleTimeUpdate = () => {
-      const current = audio.currentTime;
-      const duration = audio.duration || 0;
-      seekBar.current.style.width = `${(current / duration) * 100 || 0}%`;
-      setTime({
-        currentTime: {
-          second: formatTime(current % 60),
-          minute: formatTime(current / 60),
-        },
-        totalTime: {
-          second: formatTime(duration % 60),
-          minute: formatTime(duration / 60),
-        },
-      });
+    const handleEnded = () => {
+      if (repeatMode === 'one') {
+        audio.currentTime = 0;
+        audio.play();
+      } else if (repeatMode === 'all' || track.id < songsData.length - 1) {
+        next();
+      } else {
+        setPlayStatus(false);
+      }
     };
 
-    audio.ontimeupdate = handleTimeUpdate;
+    audio.addEventListener('ended', handleEnded);
+    return () => audio.removeEventListener('ended', handleEnded);
+  }, [track, repeatMode, next]);
+
+  // Gestion du temps avec requestAnimationFrame pour plus de fluidité
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateTime = () => {
+      if (audio.duration) {
+        const current = audio.currentTime;
+        const duration = audio.duration;
+        
+        seekBar.current.style.width = `${(current / duration) * 100}%`;
+        
+        setTime({
+          currentTime: formatTime(current),
+          totalTime: formatTime(duration),
+        });
+      }
+      
+      animationFrameRef.current = requestAnimationFrame(updateTime);
+    };
+
+    audio.addEventListener('play', () => {
+      animationFrameRef.current = requestAnimationFrame(updateTime);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    });
 
     return () => {
-      audio.ontimeupdate = null;
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, [audioRef, volume]);
+  }, []);
 
-  // Gestion de la géolocalisation pour adapter la musique à la vitesse de l'utilisateur
+  // Gestion de la géolocalisation optimisée
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(
-        (position) => {
-          setSpeed(position.coords.speed || 0);
-          const genre = speed > 2 ? "Afrobeat" : speed > 1 ? "Pop" : "Gospel";
-          const song = songsData.find((s) => s.genre === genre) || songsData[0];
-          setTrack(song);
-        },
-        (error) => {
-          console.error("Erreur de géolocalisation :", error);
-        },
-        { enableHighAccuracy: true }
-      );
-    }
-  }, [speed]);
+    if (!navigator.geolocation) return;
+
+    let watchId;
+    
+    const handlePosition = (position) => {
+      const newSpeed = position.coords.speed || 0;
+      setSpeed(newSpeed);
+      
+      // Adapter le genre selon la vitesse
+      if (Math.abs(newSpeed - speed) > 0.5) { // Seulement si changement significatif
+        let genre;
+        if (newSpeed > 5) genre = "Dance";
+        else if (newSpeed > 2) genre = "Afrobeat";
+        else if (newSpeed > 1) genre = "Pop";
+        else genre = "Gospel";
+        
+        const song = songsData.find(s => s.genre === genre);
+        if (song && song.id !== track.id) {
+          // Ne pas changer brutalement, suggérer plutôt
+          setVoiceMessage(`🏃‍♂️ Rythme ${genre} suggéré`);
+          setTimeout(() => setVoiceMessage(""), 3000);
+        }
+      }
+    };
+
+    watchId = navigator.geolocation.watchPosition(
+      handlePosition,
+      (error) => console.error("Erreur GPS:", error),
+      { enableHighAccuracy: true, maximumAge: 30000, timeout: 5000 }
+    );
+
+    return () => navigator.geolocation.clearWatch(watchId);
+  }, [speed, track]);
 
   // Valeurs partagées via le contexte
   const contextValue = {
+    // États
     audioRef,
     seekBg,
     seekBar,
@@ -325,20 +451,33 @@ const PlayerContextProvider = (props) => {
     playStatus,
     setPlayStatus,
     time,
-    setTime,
+    volume,
+    setVolume,
+    songDurations,
+    isListening,
+    voiceMessage,
+    repeatMode,
+    setRepeatMode,
+    isShuffling,
+    setIsShuffling,
+    queue,
+    history,
+    isLoading,
+    error,
+    
+    // Fonctions
     play,
     pause,
+    togglePlay,
     playWithId,
     playByQuery,
     previous,
     next,
     seekSong,
-    volume,
-    setVolume,
-    songDurations,
     toggleVoiceRecognition,
-    isListening,
-    voiceMessage,
+    
+    // Utilitaires
+    formatTime,
   };
 
   return (
@@ -349,24 +488,3 @@ const PlayerContextProvider = (props) => {
 };
 
 export default PlayerContextProvider;
-
-// const song = songsData.find((s) => s.desc.includes(tempo)) || songsData[0];
-// const songs = songsData.find((s) => s.genre === genre) || songsData[0];
-  // useEffect(() => {
-  //   setTimeout(() => {
-      
-  //     audioRef.current.ontimeupdate = () =>{
-  //       setTimeout({
-  //         currentTime: {
-  //           second: Math.floor(audioRef.current.currentTime % 60),
-  //           minute: Math.floor(audioRef.current.currentTime / 60),
-  //         },
-  //         totalTime: {
-  //           second: Math.floor(audioRef.current.duration % 60),
-  //           minute: Math.floor(audioRef.current.duration / 60),
-  //         }
-  //       });
-  //     }
-
-  //   }, 1000);
-  // },[audioRef])
