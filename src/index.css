@@ -4,8 +4,58 @@
     display: none;
 }
 
-/* Dégradé animé */
+/* Dans votre fichier CSS global */
 @keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animation pour les cartes */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Style pour la barre de progression */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  background: #4b5563;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+/* Dégradé animé */
+  @keyframes gradient {
     0% {
       background-position: 0% 50%;
     }
@@ -15,7 +65,7 @@
     100% {
       background-position: 0% 50%;
     }
-  }
+}
   
   .animate-gradient {
     background: linear-gradient(45deg, #1a1a1a, #2c3e50, #4b6cb7, #182848);
